@@ -1,0 +1,59 @@
+package com.mario.proyect.categoria;
+import java.util.List;
+
+import com.mario.proyect.equipo.Equipo;
+import com.mario.proyect.partido.Partido;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "categorias")
+public class Categoria {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String nombre;
+
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    private List<Equipo> equipos;
+	
+	@OneToMany(mappedBy = "categoria",cascade = CascadeType.ALL)
+    private List<Partido> partidos;
+    
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}	
+	public List<Equipo> getEquipos() {
+		return equipos;
+	}
+	public void setEquipos(List<Equipo> equipos) {
+		this.equipos = equipos;
+	}
+	public List<Partido> getPartidos() {
+		return partidos;
+	}
+	public void setPartidos(List<Partido> partidos) {
+		this.partidos = partidos;
+	}
+	
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", nombre=" + nombre + "]";
+	}
+}

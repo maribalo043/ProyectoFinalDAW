@@ -1,0 +1,2 @@
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto) VALUES ('Jaimitos','skaskhca',698585856);
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto) VALUES ('Pepitos','vksvdvljs',696969699);

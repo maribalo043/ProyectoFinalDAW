@@ -1,0 +1,20 @@
+# Configuración del puerto del servidor
+server.port=9090
+
+# Configuración de la base de datos H2
+spring.datasource.url=jdbc:h2:mem:patinalon
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=sa
+
+# Configuración de JPA y Hibernate
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.properties.hibernate.use_sql_comments=true
+spring.datasource.defer-datasource-initialization=true
+
+# Configuración de la consola H2
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+
+# Modo de inicialización del script SQL
+spring.sql.init.mode=always
