@@ -1,0 +1,30 @@
+package com.mario.proyect.juega;
+
+import com.mario.proyect.equipo.Equipo;
+import com.mario.proyect.partido.Partido;
+
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "juega")
+public class Juega {
+
+    @EmbeddedId
+    private JuegaKey id;
+
+    @ManyToOne
+    @MapsId("equipoId")
+    private Equipo equipo;
+
+    @ManyToOne
+    @MapsId("partidoId")
+    private Partido partido;
+
+    // Otros atributos adicionales de la relación
+
+    // getters y setters
+}
