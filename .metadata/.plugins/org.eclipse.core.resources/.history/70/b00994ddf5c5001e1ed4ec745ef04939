@@ -1,0 +1,22 @@
+package com.mario.proyect.utilidades;
+
+import java.util.List;
+
+import com.mario.proyect.jugador.Jugador;
+
+public class Repeticiones {
+
+    public static Boolean buscarRepeticiones(Jugador numero,Iterable<Jugador> numeros){
+
+        boolean devolver = true;
+        for(Jugador ayuda:numeros){
+            if(ayuda.getDni() == numero.getDni()){
+                devolver = false;
+                System.out.println("es igual");
+            }
+            System.out.println("No es igual");
+        }
+        return devolver;
+    }
+    
+}

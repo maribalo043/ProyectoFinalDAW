@@ -3,6 +3,8 @@ package com.mario.proyect.jugador;
 import com.mario.proyect.equipo.Equipo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -17,7 +19,7 @@ public class Jugador {
     private String nombre;
     private String numeroSeguro;
     private String tallaCamiseta;
-    private boolean Portero;
+    private boolean portero;
 
 	@ManyToOne
     @JoinColumn(name = "equipo_id")
@@ -48,10 +50,10 @@ public class Jugador {
 		this.tallaCamiseta = tallaCamiseta;
 	}
 	public boolean isPortero() {
-		return Portero;
+		return portero;
 	}
 	public void setPortero(boolean portero) {
-		Portero = portero;
+		this.portero = portero;
 	}
    	public Equipo getEquipo() {
 		return equipo;

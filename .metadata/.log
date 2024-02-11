@@ -1,4 +1,4 @@
-!SESSION 2024-02-04 21:45:10.121 -----------------------------------------------
+!SESSION 2024-02-11 17:31:47.831 -----------------------------------------------
 eclipse.buildId=4.20.0.202309081654
 java.version=17.0.8.1
 java.vendor=Eclipse Adoptium
@@ -7,39 +7,122 @@ Framework arguments:  -product org.springframework.boot.ide.branding.sts4
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
 
 This is a continuation of log file C:\Users\mario\OneDrive\Escritorio\Proyecto Final Curso\.metadata\.bak_0.log
-Created Time: 2024-02-04 22:03:05.149
+Created Time: 2024-02-11 18:18:40.499
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:05.149
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080585147
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:40.500
+!MESSAGE java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+!STACK 0
+java.util.concurrent.CompletionException: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1770)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.addPropertyChangeListenerIfNeed(ProcessStreamConnectionProviderWithPreference.java:129)
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.start(ProcessStreamConnectionProviderWithPreference.java:122)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$0(LanguageServerWrapper.java:268)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper cannot be found by org.eclipse.wildwebdeveloper_1.1.1.202308101949
+	... 10 more
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:05.156
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:40.501
+!MESSAGE java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+!STACK 0
+java.util.concurrent.CompletionException: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1770)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.addPropertyChangeListenerIfNeed(ProcessStreamConnectionProviderWithPreference.java:129)
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.start(ProcessStreamConnectionProviderWithPreference.java:122)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$0(LanguageServerWrapper.java:268)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper cannot be found by org.eclipse.wildwebdeveloper_1.1.1.202308101949
+	... 10 more
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:05.156
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:40.501
+!MESSAGE java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+!STACK 0
+java.util.concurrent.ExecutionException: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticHighlightReconcilerStrategy.fullReconcile(SemanticHighlightReconcilerStrategy.java:269)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticHighlightReconcilerStrategy.initialReconcile(SemanticHighlightReconcilerStrategy.java:288)
+	at org.eclipse.ui.internal.genericeditor.CompositeReconcilerStrategy.initialReconcile(CompositeReconcilerStrategy.java:48)
+	at org.eclipse.jface.text.reconciler.Reconciler.initialProcess(Reconciler.java:223)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+Caused by: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.addPropertyChangeListenerIfNeed(ProcessStreamConnectionProviderWithPreference.java:129)
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.start(ProcessStreamConnectionProviderWithPreference.java:122)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$0(LanguageServerWrapper.java:268)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper cannot be found by org.eclipse.wildwebdeveloper_1.1.1.202308101949
+	... 10 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:05.157
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 13884
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:40.507
+!MESSAGE java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+!STACK 0
+java.util.concurrent.CompletionException: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1770)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.addPropertyChangeListenerIfNeed(ProcessStreamConnectionProviderWithPreference.java:129)
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.start(ProcessStreamConnectionProviderWithPreference.java:122)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$0(LanguageServerWrapper.java:268)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper cannot be found by org.eclipse.wildwebdeveloper_1.1.1.202308101949
+	... 10 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:05.162
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 17200
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:40.971
+!MESSAGE java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+!STACK 0
+java.util.concurrent.CompletionException: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1770)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+Caused by: java.lang.NoClassDefFoundError: org/eclipse/wildwebdeveloper/ui/preferences/ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.addPropertyChangeListenerIfNeed(ProcessStreamConnectionProviderWithPreference.java:129)
+	at org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference.start(ProcessStreamConnectionProviderWithPreference.java:122)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$0(LanguageServerWrapper.java:268)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: org.eclipse.wildwebdeveloper.ui.preferences.ProcessStreamConnectionProviderWithPreference$PropertyChangeListenerWrapper cannot be found by org.eclipse.wildwebdeveloper_1.1.1.202308101949
+	... 10 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:09.089
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:43.955
 !MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
 !STACK 0
 java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
@@ -58,7 +141,7 @@ Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se e
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
 	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
+	at jdk.proxy16/jdk.proxy16.$Proxy50.shutdown(Unknown Source)
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
 	... 7 more
 Caused by: java.io.IOException: Se está cerrando la canalización
@@ -69,7 +152,7 @@ Caused by: java.io.IOException: Se está cerrando la canalización
 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
 	... 12 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:09.090
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:43.956
 !MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
 START:
 C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
@@ -82,24 +165,24 @@ C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframewo
 -XX:TieredStopAtLevel=1
 -Xlog:jni+resolve=off
 -Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080589089
+-XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707671923955
 org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
 --languageserver.hover-timeout=225
 END
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:09.091
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:18:43.956
 !MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:09.091
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:18:43.957
 !MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:09.092
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 17200
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:43.957
+!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 16872
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:09.099
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 22188
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:43.961
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 9396
 
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:11.698
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:44.321
 !MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
 !STACK 0
 java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
@@ -118,7 +201,7 @@ Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se e
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
 	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
+	at jdk.proxy16/jdk.proxy16.$Proxy50.shutdown(Unknown Source)
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
 	... 7 more
 Caused by: java.io.IOException: Se está cerrando la canalización
@@ -129,7 +212,7 @@ Caused by: java.io.IOException: Se está cerrando la canalización
 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
 	... 12 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:11.699
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:44.322
 !MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
 START:
 C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
@@ -142,24 +225,24 @@ C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframewo
 -XX:TieredStopAtLevel=1
 -Xlog:jni+resolve=off
 -Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080591698
+-XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707671924321
 org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
 --languageserver.hover-timeout=225
 END
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:11.699
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:11.700
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:18:44.323
 !MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:11.700
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 22188
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:18:44.323
+!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:11.706
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 18132
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:44.324
+!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 9396
 
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:14.449
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:44.328
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 10464
+
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:18:45.900
 !MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
 !STACK 0
 java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
@@ -178,7 +261,7 @@ Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se e
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
 	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
+	at jdk.proxy16/jdk.proxy16.$Proxy50.shutdown(Unknown Source)
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
 	... 7 more
 Caused by: java.io.IOException: Se está cerrando la canalización
@@ -189,7 +272,7 @@ Caused by: java.io.IOException: Se está cerrando la canalización
 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
 	... 12 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:14.449
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:45.901
 !MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
 START:
 C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
@@ -202,24 +285,36 @@ C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframewo
 -XX:TieredStopAtLevel=1
 -Xlog:jni+resolve=off
 -Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080594449
+-XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707671925900
 org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
 --languageserver.hover-timeout=225
 END
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:14.450
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:14.450
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:18:45.901
 !MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:14.451
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 18132
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:18:45.902
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:14.456
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 13784
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:45.902
+!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 10464
 
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:15.140
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:18:45.907
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 17816
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-11 18:18:46.900
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:19:21.148
 !MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
 !STACK 0
 java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
@@ -238,7 +333,7 @@ Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se e
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
 	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
+	at jdk.proxy16/jdk.proxy16.$Proxy50.shutdown(Unknown Source)
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
 	... 7 more
 Caused by: java.io.IOException: Se está cerrando la canalización
@@ -249,7 +344,7 @@ Caused by: java.io.IOException: Se está cerrando la canalización
 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
 	... 12 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:15.141
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:19:21.148
 !MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
 START:
 C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
@@ -262,24 +357,36 @@ C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframewo
 -XX:TieredStopAtLevel=1
 -Xlog:jni+resolve=off
 -Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080595140
+-XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707671961148
 org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
 --languageserver.hover-timeout=225
 END
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:15.142
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:19:21.149
 !MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:15.143
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:19:21.150
 !MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:15.143
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 13784
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:19:21.150
+!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 17816
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:15.150
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 25032
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:19:21.156
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 9632
 
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:18.087
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-11 18:19:22.160
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:24:16.307
 !MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
 !STACK 0
 java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
@@ -298,7 +405,7 @@ Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se e
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
 	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
+	at jdk.proxy16/jdk.proxy16.$Proxy50.shutdown(Unknown Source)
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
 	... 7 more
 Caused by: java.io.IOException: Se está cerrando la canalización
@@ -309,7 +416,7 @@ Caused by: java.io.IOException: Se está cerrando la canalización
 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
 	... 12 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:18.089
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:24:16.308
 !MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
 START:
 C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
@@ -322,24 +429,24 @@ C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframewo
 -XX:TieredStopAtLevel=1
 -Xlog:jni+resolve=off
 -Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080598087
+-XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707672256307
 org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
 --languageserver.hover-timeout=225
 END
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:18.089
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:24:16.308
 !MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:18.090
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:24:16.308
 !MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:18.090
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 25032
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:24:16.308
+!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 9632
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:18.096
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 2392
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:24:16.313
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 22076
 
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:19.962
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-11 18:24:17.296
 !MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
 !STACK 0
 java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
@@ -358,7 +465,7 @@ Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se e
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
 	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
+	at jdk.proxy16/jdk.proxy16.$Proxy50.shutdown(Unknown Source)
 	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
 	... 7 more
 Caused by: java.io.IOException: Se está cerrando la canalización
@@ -369,7 +476,7 @@ Caused by: java.io.IOException: Se está cerrando la canalización
 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
 	... 12 more
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:19.963
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:24:17.297
 !MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
 START:
 C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
@@ -382,559 +489,19 @@ C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframewo
 -XX:TieredStopAtLevel=1
 -Xlog:jni+resolve=off
 -Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080599962
+-XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707672257296
 org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
 --languageserver.hover-timeout=225
 END
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:19.964
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:24:17.297
 !MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:19.964
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-11 18:24:17.298
 !MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:19.965
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 2392
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:24:17.298
+!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 22076
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:19.971
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 17996
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:20.634
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:20.636
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080600634
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:20.636
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:20.636
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:20.638
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 17996
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:20.650
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 25304
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:22.249
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:22.250
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080602249
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:22.251
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:22.252
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:22.252
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 25304
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:22.259
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 29976
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:42.225
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:42.227
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080622225
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:42.227
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:42.228
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:42.228
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 29976
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:42.234
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 30100
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:43.933
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:43.935
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080623933
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:43.936
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:43.937
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:43.938
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 30100
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:43.945
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 27376
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:46.747
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:46.747
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080626747
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:46.748
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:46.749
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:46.749
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 27376
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:46.755
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 29888
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:48.979
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:48.980
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080628979
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:48.980
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:48.981
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:48.981
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 29888
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:48.986
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 14920
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:49.676
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:49.677
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080629676
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:49.678
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:49.678
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:49.679
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 14920
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:49.684
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 30432
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:03:53.125
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:53.127
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080633125
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:53.129
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:03:53.130
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:53.132
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 30432
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:03:53.140
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 20156
-
-!ENTRY org.eclipse.lsp4e 4 0 2024-02-04 22:04:11.438
-!MESSAGE org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-!STACK 0
-java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:465)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
-Caused by: org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.io.IOException: Se está cerrando la canalización
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:285)
-	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.request(RemoteEndpoint.java:161)
-	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:91)
-	at jdk.proxy18/jdk.proxy18.$Proxy58.shutdown(Unknown Source)
-	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$10(LanguageServerWrapper.java:463)
-	... 7 more
-Caused by: java.io.IOException: Se está cerrando la canalización
-	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
-	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:349)
-	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
-	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
-	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
-	... 12 more
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:04:11.438
-!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
-START:
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin\javaw.exe
--cp
-C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\lib\*
--Dsts.lsp.client=eclipse
--Dlsp.completions.indentation.enable=true
--Xmx1024m
--XX:+HeapDumpOnOutOfMemoryError
--XX:TieredStopAtLevel=1
--Xlog:jni+resolve=off
--Dspring.config.location=file:C:\Users\mario\OneDrive\Escritorio\Programacion\Spring\plugins\org.springframework.tooling.boot.ls_1.49.0.202309081616\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=C:/Users/mario/OneDrive/Escritorio/Proyecto Final Curso/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1707080651438
-org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
---languageserver.hover-timeout=225
-END
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:04:11.439
-!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
-
-!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-04 22:04:11.439
-!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:04:11.440
-!MESSAGE Stopped org.springframework.tooling.boot.ls LS process 20156
-
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-04 22:04:11.446
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 13648
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-11 18:24:17.304
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 340

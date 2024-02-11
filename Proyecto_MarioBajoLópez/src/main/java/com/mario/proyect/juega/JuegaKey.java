@@ -53,7 +53,5 @@ public class JuegaKey implements Serializable {
 	public String toString() {
 		return "JuegaKey [equipoId=" + equipoId + ", partidoId=" + partidoId + "]";
 	}
-
-    
 }
 

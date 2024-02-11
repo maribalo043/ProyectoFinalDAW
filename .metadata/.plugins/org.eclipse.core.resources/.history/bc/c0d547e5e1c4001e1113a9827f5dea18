@@ -1,0 +1,34 @@
+package com.mario.proyect.jugador;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
+public class JugadorController {
+
+    private final JugadorDAO jugadorDao;
+
+    // Constructor para inyectar la dependencia del repositorio (JugadorDao)
+    public JugadorController(JugadorDAO jugadorDao) {
+        this.jugadorDao = jugadorDao;
+    }
+
+    @GetMapping(value = "/jugadores", produces = "application/json")
+    public ResponseEntity<List<Jugador>> getJugadores() {
+        try {
+            List<Jugador> jugadores = (List<Jugador>) jugadorDao.findAll();
+            
+            // Retorna la lista de jugadores con un estado HTTP 200 (OK)
+            return new ResponseEntity<>(jugadores, HttpStatus.OK);
+        } catch (Exception e) {
+            // Manejo de excepciones: Retorna un estado HTTP 500 (Internal Server Error)
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); 
+        }
+    }
+}

@@ -1,0 +1,34 @@
+INSERT INTO categorias (nombre) VALUES ('Mini');
+INSERT INTO categorias (nombre) VALUES ('Guajes');
+INSERT INTO categorias (nombre) VALUES ('Promesas');
+INSERT INTO categorias (nombre) VALUES ('Estrellas');
+INSERT INTO categorias (nombre) VALUES ('Ok Masters');
+
+INSERT INTO partidos (resultado,pista,categoria_id) VALUES ('6-1','hola que tal',1);
+INSERT INTO partidos (resultado,pista,categoria_id) VALUES ('6-2','hola que tal',1);
+INSERT INTO partidos (resultado,pista,categoria_id) VALUES ('6-3','hola que tal',2);
+INSERT INTO partidos (resultado,pista,categoria_id) VALUES ('6-4','hola que tal',2);
+
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,categoria_id) VALUES ('Jaimitos','skaskhca',698585856,5);
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,categoria_id) VALUES ('Pepitos','vksvdvljs',696969699,5);
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,categoria_id) VALUES ('Manolitas','vdflahfla',696969682,5);
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,categoria_id) VALUES ('Jositos','vdflahfla',696969682,5);
+
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero) VALUES ('1234567A','Mario',1234,'XL',false);
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero) VALUES ('1234567B','Mario',1234,'XL',false);
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero) VALUES ('1234567C','Mario',1234,'XL',true);
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero) VALUES ('1234567D','Mario',1234,'XL',false);
+
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1234587D','Mario',1234,'XL',false,2);
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1234564D','Mario',1234,'XL',false,2);
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1634567D','Mario',1234,'XL',true,2);
+INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1234527D','Mario',1234,'XL',false,2);
+ 
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (1,1,'1º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (1,2,'1º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (2,3,'2º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (2,4,'2º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (3,1,'3º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (3,3,'3º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (4,2,'4º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (4,4,'4º Partido');

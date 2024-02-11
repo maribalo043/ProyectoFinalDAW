@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Añadir Jugador</title>
+  <!-- Enlace al archivo CSS de Bootstrap (puedes cambiar la versión según sea necesario) -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('../static/Images/EscudoPatinalon.png') no-repeat center center fixed;
+      background-size:contain;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background-color: #28a745;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+      width: 50vh;
+      margin: 3vh;
+    }
+    h2 {
+      color: #ffffff;
+    }
+    label {
+      color: #ffffff;
+    }
+    .btn-primary {
+      background-color: #ffffff;
+      color: #28a745;
+      border-color: #28a745;
+    }
+    .form-check-inline {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Añadir Jugador</h2>
+    <form th:action="@{~/jugador/save}" method="post" th:object="${jugadorNuevo}">
+      <div class="form-group">
+        <label for="dni">DNI:</label>
+        <input type="text" class="form-control" id="dni" placeholder="Ingrese el DNI" th:field="*{dni}" required>
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre y apellidos del Jugador:</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" th:field="*{nombre}">
+      </div>
+      <div class="form-group">
+        <label for="numSeguro">Número de Seguro:</label>
+        <input type="text" class="form-control" id="numSeguro" placeholder="Ingrese el número de seguro" size="20" th:field="*{numeroSeguro}">
+      </div>
+      <div class="form-group">
+        <label for="tallaCamiseta">Talla de Camiseta:</label>
+        <select class="form-control" id="tallaCamiseta" th:field="*{tallaCamiseta}">
+          <option value="3XL">3XL</option>
+          <option value="2XL">2XL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+          <option value="M">M</option>
+          <option value="S">S</option>
+          <option value="XS">XS</option>
+          <option value="3XS">3XS</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>¿Es portero?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="portero" id="porteroSi" value="true" th:field="*{portero}">
+          <label class="form-check-label" for="porteroSi">Sí</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="portero" id="porteroNo" value="false" checked th:field="*{portero}">
+          <label class="form-check-label" for="porteroNo">No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="equipo">Equipo:</label>
+          <select class="form-control" id="equipo" th:field="*{equipo}">
+              <option value="">No Asignado</option>
+              <option th:each="equipoItem : ${equipos}" th:value="${equipoItem.id}" th:text="${equipoItem.nombre}"></option>
+          </select>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Añadir Jugador">
+    </form>
+  </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
