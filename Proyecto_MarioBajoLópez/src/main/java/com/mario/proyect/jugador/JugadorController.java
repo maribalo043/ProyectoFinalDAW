@@ -41,7 +41,7 @@ public class JugadorController {
 
 
     @GetMapping("/jugador/{dni}")
-	public ModelAndView getPlan(@PathVariable String dni) {
+	public ModelAndView getJugador(@PathVariable String dni) {
 		Jugador jugador = jugadorDao.findById(dni).get();
 		ModelAndView model = new ModelAndView();
 		model.setViewName("Jugador");
@@ -61,9 +61,9 @@ public class JugadorController {
         
         return model;
     }
+    
     @GetMapping("/jugador/add")
     public ModelAndView addJugador(){
-
         ModelAndView model = new ModelAndView();
         model.addObject("jugadorNuevo", new Jugador());
         model.addObject("equipos", equipoDao.findAll());

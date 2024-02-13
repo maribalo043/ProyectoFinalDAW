@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Formulario de Creación de Equipos</title>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mb-4">Crear Nuevo Equipo</h2>
+      <form th:action="@{~/equipo/save}" method="post" th:object="${equipoNuevo}">
+        <div class="form-group">
+          <label for="id" hidden>ID</label>
+          <input type="text" class="form-control" id="id" placeholder="ID" required th:field="*{id}" readonly hidden>
+          <label for="nombreEquipo">Nombre del Equipo:</label>
+          <input type="text" class="form-control" id="nombreEquipo" placeholder="Ingrese el nombre del equipo" required th:field="*{nombre}">
+        </div>
+
+        <div class="form-group">
+          <label for="emailContacto">Dirección de Correo Electrónico:</label>
+          <input type="email" class="form-control" id="emailContacto" placeholder="Ingrese el email de contacto" required th:field="*{emailContacto}">
+        </div>
+
+        <div class="form-group">
+          <label for="numeroTelefonoContacto">Número de Teléfono:</label>
+          <input type="tel" class="form-control" id="numeroTelefonoContacto" placeholder="Ingrese el número de teléfono" required th:field="*{numeroTelefonoContacto}">
+        </div>
+
+        <div class="form-group">
+          <label for="categoria">Categoria:</label>
+          <select class="form-control" id="categoria" th:field="*{categoria}" required>
+              <option th:each="categoriaItem : ${categorias}" th:value="${categoriaItem.id}" th:text="${categoriaItem.nombre}"></option>
+
+          </select>
+      </div>
+      
+
+        <input type="submit" class="btn btn-primary" value="Añadir Equipo">
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

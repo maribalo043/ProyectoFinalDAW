@@ -14,14 +14,13 @@
     <!-- Estilos personalizados -->
     <style>
         body {
-            background-color: white;
             color:  black;
-            background: url('../static/Images/EscudoPatinalon.png') no-repeat center center fixed;
-        background-size:contain;
+            background: url("../static/Images/EscudoPatinalon.png") no-repeat center center fixed;
+            background-size:contain;
         }
 
         .table {
-            color: white;
+            color: black;
         }
 
         .table-dark tbody th,
@@ -37,27 +36,17 @@
             text-align: center;
             line-height: 30px;
         }
-
-        .edit-button {
-            background-color: rgb(255, 255, 144);
-            color: #000;
-        }
-
-        .delete-button {
-            background-color: rgb(255, 255, 144);
-            color: #000;
-        }
     </style>
 </head>
 <body>
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Lista de Jugadores
+        <h2 class="text-start mb-4">Lista de Jugadores
             <a class="btn btn-primary float-right m-2" th:href="@{~/jugador/add}">Añadir Jugador</a>
             <a class="btn btn-primary float-right m-2" th:href="@{/jugadores/tallaCamiseta(tallaCamiseta=tallaCamiseta)}">Filtrar por Talla Camiseta</a>
             <a class="btn btn-primary float-right m-2" th:href="@{/jugadores/equipo(equipo=equipo)}">Filtrar por Equipo</a>
         </h2>
-        <table class="table table-dark table-striped">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>

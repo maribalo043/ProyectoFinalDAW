@@ -3,6 +3,7 @@ package com.mario.proyect.juega;
 import com.mario.proyect.equipo.Equipo;
 import com.mario.proyect.partido.Partido;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,19 +13,19 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "juega")
+//@Entity
+//@Table(name = "juega")
 public class Juega {
-
+/*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "partido_id")
     private Partido partido;
-
-    @ManyToOne
+    
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "equipo_id")
     private Equipo equipo;
 
@@ -59,5 +60,5 @@ public class Juega {
 	}
 	public void setFecha(String fecha){
 		this.fecha=fecha;
-	}
+	}*/
 }

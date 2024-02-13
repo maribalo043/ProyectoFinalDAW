@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos y Atributos</title>
+    <!-- Agrega la referencia a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-start mb-4">Lista de Equipos
+            <a class="btn btn-primary float-right m-2" th:href="@{~/equipo/add}">Añadir Equipo</a>
+            <a class="btn btn-primary float-right m-2" th:href="@{~/equipos/{filtro}(filtro = categorias)}">Filtrar por Categoría</a>
+        </h2>
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Correo Electrónico</th>
+                    <th>Número de Teléfono</th>
+                    <th>Ver</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="equipo:${equipos}">
+                    <td th:text="${equipo.id}">1</td>
+                    <td th:text="${equipo.nombre}">Equipo 1</td>
+                    <td th:text="${equipo.categoria?.nombre}">Equipo 1</td>
+                    <td th:text="${equipo.emailContacto}">equipo1@email.com</td>
+                    <td th:text="${equipo.numeroTelefonoContacto}">1234567890</td>
+                    <td><a class="circular-button edit-button text-decoration-none" title="Edita" th:href="@{~/equipo/{id}(id=${equipo.id})}">👁️</a></td>
+                    <td><a class="circular-button delete-button text-decoration-none" title="Eliminar" th:href="@{~/equipo/del/{id}(id = ${equipo.id})}">❌</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

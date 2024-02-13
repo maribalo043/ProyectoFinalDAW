@@ -19,7 +19,9 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+	
     private String nombre;
+    private boolean activa;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     private List<Equipo> equipos;
@@ -39,6 +41,12 @@ public class Categoria {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}	
+	public boolean isActiva() {
+		return activa;
+	}
+	public void setActiva(boolean activa) {
+		this.activa = activa;
+	}
 	public List<Equipo> getEquipos() {
 		return equipos;
 	}

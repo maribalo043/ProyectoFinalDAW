@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Equipo</title>
+    <!-- Agrega la referencia a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('../static/Images/EscudoPatinalon.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="card-body" th:each="equipo : ${equipo}">
+            <h2 class="card-title">Detalles del Equipo</h2>
+            <span><strong>ID:</strong><span th:text="${equipo.id}">id</span></span><br>
+            <span><strong>Nombre:</strong><span th:text="${equipo.nombre}">equipo</span></span><br>
+            <span><strong>Email de Contacto:</strong><span th:text="${equipo.emailContacto}">email</span></span><br>
+            <span><strong>Número de Teléfono de Contacto:</strong><span th:text="${equipo.numeroTelefonoContacto}">telefono</span></span><br>
+            <div class="mt-4">
+                <span><a th:href="@{~/equipos}" class="btn btn-secondary">Volver</a></span>
+                <span><a th:href="@{~/equipo/edit/{id}(id = ${equipo.id})}" class="btn btn-primary ml-2">Editar</a></span>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
