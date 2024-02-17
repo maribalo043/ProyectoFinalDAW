@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de categorias</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-start mb-4">Lista de Equipos
+            <a class="btn btn-primary float-right m-2">Añadir Categoria</a>
+        </h2>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Ver</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="c:${categorias}">
+                    <td th:text="${c.id}">1</td>
+                    <td th:text="${c.nombre}">Categoria 1</td>
+                    <td th:text="${c.activa}">Activo</td>
+                    <td><a class="circular-button edit-button text-decoration-none" title="Edita" th:href="@{~/categoria/{id}(id=${c.id})}">👁️</a></td>
+                    <td><a class="circular-button delete-button text-decoration-none" title="Eliminar">❌</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
