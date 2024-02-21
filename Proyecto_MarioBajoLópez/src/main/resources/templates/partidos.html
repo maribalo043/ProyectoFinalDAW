@@ -10,9 +10,13 @@
 
     <div class="container mt-5">
         <h2 class="text-start mb-4">Lista de Partidos
-            <a class="btn btn-primary float-right m-2" th:href="@{~/partido/add}">Añadir Partido</a>
+            <a class="btn btn-primary float-right m-2" th:href="@{~/partido/add}" th:if="${not #lists.isEmpty(partidos)}">Añadir Partido</a>
         </h2>
-        <table class="table table-striped table-hover">
+        <div th:if="${#lists.isEmpty(partidos)}">
+            <h3>La tabla de Partidos esta vacia, Añada usted el primer partido</h3>
+            <a class="btn btn-primary float-right m-2">Añadir Partido</a>
+        </div >
+        <table th:if="${not #lists.isEmpty(partidos)}" class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th>ID</th>
