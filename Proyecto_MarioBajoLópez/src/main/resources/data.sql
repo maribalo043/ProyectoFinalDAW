@@ -1,4 +1,4 @@
-INSERT INTO categorias (nombre,activa) VALUES ('Mini',true);
+INSERT INTO categorias (nombre,activa) VALUES ('Mini',false);
 INSERT INTO categorias (nombre,activa) VALUES ('Guajes',true);
 INSERT INTO categorias (nombre,activa) VALUES ('Promesas',true);
 INSERT INTO categorias (nombre,activa) VALUES ('Estrellas',true);

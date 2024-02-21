@@ -35,14 +35,15 @@
 <body>
 
     <div class="card">
-        <div class="card-body" th:each="c : ${categoria}">
-            <h2 class="card-title">Detalles de la Categoria</h2>
-            <span><strong>ID:</strong><span th:text="${c.id}">id</span></span><br>
-            <span><strong>Nombre:</strong><span th:text="${c.nombre}">equipo</span></span><br>
-            <span><strong>Activa:</strong><span th:text="${c.activa}">email</span></span><br>
+        <div class="card-body" th:each="partido : ${partido}">
+            <h2 class="card-title">Detalles del Partido</h2>
+            <span><strong>ID:</strong><span th:text="${partido.id}">id</span></span><br>
+            <span><strong>Resultado:</strong>LOCAL <span th:text="${partido.resultado}">equipo</span> VISITANTE</span><br>
+            <span><strong>Pista:</strong><span th:text="${partido.pista}">email</span></span><br>
+            <span><strong>Categoria:</strong><span th:text="${partido.categoria.nombre}">telefono</span></span><br>
             <div class="mt-4">
-                <span><a th:href="@{~/categorias}" class="btn btn-secondary">Volver</a></span>
-                <span><a class="btn btn-primary ml-2">Editar</a></span>
+                <span><a th:href="@{~/partidos}" class="btn btn-secondary">Volver</a></span>
+                <span><a th:href="@{~/partido/edit/{id}(id = ${partido.id})}" class="btn btn-primary ml-2">Editar</a></span>
             </div>
         </div>
     </div>
