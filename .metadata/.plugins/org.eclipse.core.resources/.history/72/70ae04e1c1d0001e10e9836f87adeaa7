@@ -1,0 +1,63 @@
+package com.mario.proyect.partido;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+
+@Controller
+public class PartidoController {
+
+    @Autowired
+    PartidoDAO partidoDao;
+
+    @GetMapping("/partidos")
+    public ModelAndView getPartidos() {
+       
+        ModelAndView model = new ModelAndView();
+        model.setViewName("partidos");
+        model.addObject("partidos", partidoDao.findAll());
+
+        return model;
+    }
+
+    @GetMapping("/partido/{id}")
+    public ModelAndView getPartido(@PathVariable long id){
+
+        ModelAndView model = new ModelAndView();
+        model.setViewName("partido");
+        model.addObject("partido", partidoDao.findById(id).get());
+
+        return model;
+    }
+    /*A partir de aqui los metodos estan echos pero no provados*/
+    @GetMapping("/partido/del/{id}")
+    public ModelAndView deletePartido(@PathVariable long id) {
+    	
+    	ModelAndView model = new ModelAndView();
+    	model.setViewName("redirect:/partidos");
+    	Partido partido = partidoDao.findById(id).get();
+
+    	if(partido!= null) {
+    		partidoDao.delete(partido);
+    	}
+    	
+    	return model;
+    }
+    @GetMapping("partido/add")
+    public ModelAndView addPartidos() {
+    	
+    	ModelAndView model = new ModelAndView();
+    	model.setViewName("partidoForm");
+    	model.addAllObject("partidoNuevo",new Partido());
+    	
+    	
+    	return model;  	
+    }
+
+    
+    
+}
