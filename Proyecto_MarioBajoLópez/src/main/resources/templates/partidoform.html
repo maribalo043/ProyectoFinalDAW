@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <title>Formulario de Creación de Partidos</title>
+  <style>
+    /* Estilo personalizado para los elementos option */
+    .form-control option {
+        background-color: #f8f9fa; /* Fondo gris suave */
+        border-radius: 5px; /* Esquinas redondeadas */
+        padding: 8px; /* Espaciado interno */
+    }
+</style>
 </head>
 <body>
 
@@ -19,17 +27,22 @@
           <label for="nombreEquipo">Resultado del partido:</label>
           <input type="text" class="form-control" id="nombreEquipo" placeholder="Ingrese el resultado" required th:field="*{resultado}">
         </div>
-        <div class="form-group">
-          <label for="emailContacto">Pista:</label>
-          <input type="email" class="form-control" id="emailContacto" placeholder="Ingrese la pista" required th:field="*{pista}">
-        </div>
-
-        <div class="form-group">
-          <label for="numeroTelefonoContacto">Categoria:</label>
-          <select class="form-control" id="categoria" th:field="*{categoria}" required>
-            <option th:each="categoriaItem : ${categorias}" th:value="${categoriaItem.id}" th:text="${categoriaItem.nombre}"></option>
-
-        </select>
+      
+      <div class="form-group">
+          <label for="pista">Pista:</label>
+          <select class="form-control rounded bg-light" id="pista" th:field="*{pista}" required>
+              <option value="Sara Roces">Sara Roces</option>
+              <option value="Marta Piquero">Marta Piquero</option>
+          </select>
+      </div>
+      
+      <div class="form-group">
+          <label for="categoria">Categoria:</label>
+          <select class="form-control rounded bg-light" id="categoria" th:field="*{categoria}" required>
+              <option th:each="categoriaItem : ${categorias}" th:value="${categoriaItem.id}" th:text="${categoriaItem.nombre}"></option>
+          </select>
+      </div>
+      
         </div>     
 
         <input type="submit" class="btn btn-primary" value="Añadir Equipo">
