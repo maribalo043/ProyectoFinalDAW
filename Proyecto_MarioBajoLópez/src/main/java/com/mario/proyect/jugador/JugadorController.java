@@ -23,8 +23,7 @@ public class JugadorController {
     @GetMapping(value = {"/jugadores", "/jugadores/{filtro}"})
     public ModelAndView getJugadores(@PathVariable(required = false) String filtro) {
 
-    ModelAndView model = new ModelAndView();
-    model.setViewName("jugadores");
+    ModelAndView model = new ModelAndView("jugadorHTML/jugadores");
     if(filtro != null){
         if(filtro.equals("tallaCamiseta")){
             model.addObject("jugadores", jugadorDao.findAllPorTallaCamiseta());
@@ -44,7 +43,7 @@ public class JugadorController {
 	public ModelAndView getJugador(@PathVariable String dni) {
 		Jugador jugador = jugadorDao.findById(dni).get();
 		ModelAndView model = new ModelAndView();
-		model.setViewName("Jugador");
+		model.setViewName("jugadorHTML/Jugador");
 		model.addObject("jugador",jugador);
 		return model;
 	}
@@ -68,7 +67,7 @@ public class JugadorController {
         model.addObject("jugadorNuevo", new Jugador());
         model.addObject("equipos", equipoDao.findAll());
         model.addObject("equipoItem",equipoDao.findAll());
-        model.setViewName("jugadoresForm");
+        model.setViewName("jugadorHTML/jugadoresForm");
 
         return model;
     }
@@ -100,7 +99,7 @@ public class JugadorController {
         if(jugOpt.isPresent()) {
 			model.addObject("jugadorNuevo",jugOpt.get());
             model.addObject("equipos",equipoDao.findAll());
-			model.setViewName("jugadoresForm");
+			model.setViewName("jugadorHTML/jugadoresForm");
 		}else model.setViewName("redirect:/jugadores");
 		return model;
     } 
