@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.mario.proyect.equipo.EquipoDao;
+import com.mario.proyect.equipo.EquipoDAO;
 
 
 @Controller
@@ -18,7 +18,7 @@ public class JugadorController {
     @Autowired
     JugadorDAO jugadorDao;
     @Autowired
-    EquipoDao equipoDao;
+    EquipoDAO equipoDao;
 
     @GetMapping(value = {"/jugadores", "/jugadores/{filtro}"})
     public ModelAndView getJugadores(@PathVariable(required = false) String filtro) {

@@ -13,19 +13,20 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-//@Entity
-//@Table(name = "juega")
+@Entity
+@Table(name = "juega")
 public class Juega {
-/*
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    /*Le tengo que poner persist por que si pongo ALL me vacia la base de datos, debido a que eliminaba todo tanto padres como hijos y solo quedaba con datos la tabla de categorias por que no es hija de nadie*/
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "partido_id")
     private Partido partido;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "equipo_id")
     private Equipo equipo;
 
@@ -60,5 +61,5 @@ public class Juega {
 	}
 	public void setFecha(String fecha){
 		this.fecha=fecha;
-	}*/
+	}
 }

@@ -23,11 +23,11 @@ INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_
 INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1634567D','Mario',1234,'S',true,2);
 INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1234527D','Mario',1234,'3XS',false,2);
 
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (1,1,'1º Partido');
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (1,2,'1º Partido');
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (2,3,'2º Partido');
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (2,4,'2º Partido');
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (3,1,'3º Partido');
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (3,3,'3º Partido');
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (4,2,'4º Partido');
-//INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (4,4,'4º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (1,1,'1º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (1,2,'1º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (2,3,'2º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (2,4,'2º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (3,1,'3º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (3,3,'3º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (4,2,'4º Partido');
+INSERT INTO juega (partido_id,equipo_id,fecha) VALUES (4,4,'4º Partido');

@@ -1,13 +1,18 @@
 package com.mario.proyect.partido;
 
-import com.mario.proyect.categoria.Categoria;
+import java.util.List;
 
+import com.mario.proyect.categoria.Categoria;
+import com.mario.proyect.juega.Juega;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,7 +29,8 @@ public class Partido {
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 
-    //private String equipos;
+    @OneToMany(mappedBy = "partido", cascade = CascadeType.ALL)
+    private List<Juega> juegas;
     
 	public long getId() {
 		return id;
@@ -50,7 +56,12 @@ public class Partido {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
+	public List<Juega> getJuegas() {
+        return juegas;
+    }
+    public void setJuegas(List<Juega> juegas) {
+        this.juegas = juegas;
+    }
 	@Override
 	public String toString() {
 		return "Partido [id=" + id + ", resultado=" + resultado + "]";

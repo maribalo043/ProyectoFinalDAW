@@ -22,7 +22,7 @@ public class Jugador {
     private boolean portero;
 
 	@ManyToOne
-    @JoinColumn(name = "equipo_id")
+    @JoinColumn(name = "equipo_id", nullable = true)
     private Equipo equipo;
 
 	public String getDni() {

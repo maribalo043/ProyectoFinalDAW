@@ -25,7 +25,7 @@ public class PartidoController {
     public ModelAndView getPartidos() {
        
         ModelAndView model = new ModelAndView();
-        model.setViewName("partidos");
+        model.setViewName("partidoHTML/partidos");
         model.addObject("partidos", partidoDao.findAll());
 
         return model;
@@ -35,7 +35,7 @@ public class PartidoController {
     public ModelAndView getPartido(@PathVariable long id){
 
         ModelAndView model = new ModelAndView();
-        model.setViewName("partido");
+        model.setViewName("partidoHTML/partido");
         model.addObject("partido", partidoDao.findById(id).get());
 
         return model;
@@ -54,10 +54,10 @@ public class PartidoController {
     	return model;
     }
     @GetMapping("/partido/add")
-    public ModelAndView addPartidos() {
+    public ModelAndView addPartido() {
     	
     	ModelAndView model = new ModelAndView();
-    	model.setViewName("partidoForm");
+    	model.setViewName("partidoHTML/partidoForm");
     	model.addObject("partidoNuevo",new Partido());
         model.addObject("categorias",categoriaDao.categoriasActive());
 
@@ -87,7 +87,7 @@ public class PartidoController {
     public ModelAndView editPartido(@PathVariable long id){
 
         ModelAndView model = new ModelAndView();
-        model.setViewName("partidoForm");
+        model.setViewName("partidoHTML/partidoForm");
         model.addObject("partidoNuevo",partidoDao.findById(id));
         model.addObject("categorias",categoriaDao.categoriasActive());
 

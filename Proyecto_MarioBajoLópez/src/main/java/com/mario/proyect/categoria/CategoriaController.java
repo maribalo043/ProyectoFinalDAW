@@ -21,20 +21,20 @@ public class CategoriaController {
     CategoriaDAO categoriaDao;
 
     @GetMapping("/categorias")
-    public ModelAndView getMethodName() {
+    public ModelAndView getCategorias() {
         
         ModelAndView model = new ModelAndView();
-        model.setViewName("categorias");
+        model.setViewName("categoriaHTML/categorias");
         model.addObject("categorias", categoriaDao.findAll());
         
         return model;
     }
     @GetMapping("/categoria/{id}")
-    public ModelAndView getJugador(@PathVariable long id) {
+    public ModelAndView getCategoria(@PathVariable long id) {
         
         ModelAndView model = new ModelAndView();
 
-        model.setViewName("categoria");
+        model.setViewName("categoriaHTML/categoria");
         model.addObject("categoria",categoriaDao.findById(id).get());
         
         return model;
@@ -43,7 +43,7 @@ public class CategoriaController {
     public ModelAndView addCategoria() {
 
         ModelAndView model = new ModelAndView();
-        model.setViewName("categoriaForm");
+        model.setViewName("categoriaHTML/categoriaForm");
         model.addObject("categoriaNueva", new Categoria());
 
         return model;
@@ -86,7 +86,7 @@ public class CategoriaController {
         if (categoria.isPresent()) {
             model.addObject("categoriaNueva", categoria.get());
         }
-        model.setViewName("categoriaForm");
+        model.setViewName("categoriaHTML/categoriaForm");
         return model;
     }
     

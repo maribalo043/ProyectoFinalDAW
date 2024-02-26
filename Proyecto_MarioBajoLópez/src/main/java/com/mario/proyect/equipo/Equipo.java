@@ -3,6 +3,7 @@ package com.mario.proyect.equipo;
 import java.util.List;
 
 import com.mario.proyect.categoria.Categoria;
+import com.mario.proyect.juega.Juega;
 import com.mario.proyect.jugador.Jugador;
 
 import jakarta.persistence.CascadeType;
@@ -33,7 +34,8 @@ public class Equipo {
 	@JoinColumn(name = "categoria_id")
     private Categoria categoria;
 	
-    //private String partidos;
+	@OneToMany(mappedBy = "equipo", cascade = CascadeType.REMOVE)
+    private List<Juega> juegas;
 
 	public long getId() {
 		return id;
@@ -71,7 +73,13 @@ public class Equipo {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
+	public List<Juega> getJuegas() {
+        return juegas;
+    }
+
+    public void setJuegas(List<Juega> juegas) {
+        this.juegas = juegas;
+    }
 	@Override
 	public String toString() {
 		return "Equipo [id=" + id + ", nombre=" + nombre + "]";
