@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mario.proyect.categoria.CategoriaDAO;
-import com.mario.proyect.juega.Juega;
-import com.mario.proyect.juega.JuegaDAO;
 import com.mario.proyect.jugador.JugadorDAO;
+import com.mario.proyect.partido.Partido;
+import com.mario.proyect.partido.PartidoDAO;
 
 import jakarta.transaction.Transactional;
 
@@ -29,7 +29,7 @@ public class EquipoController {
     @Autowired
     CategoriaDAO categoriaDao;
     @Autowired
-    JuegaDAO juegaDao;
+    PartidoDAO partidoDao;
 
     @GetMapping(value = {"/equipos", "/equipos/{filtro}"})
     public ModelAndView getEquipos(@PathVariable(required = false) String filtro) {
@@ -62,31 +62,27 @@ public class EquipoController {
         return model;
     }
 
+    @SuppressWarnings("null")
     @GetMapping("/equipo/del/{id}")
-    @Transactional
-    public ModelAndView deleteEquipo(@PathVariable long id) {
-        ModelAndView model = new ModelAndView();
-        Optional<Equipo> equipoOptional = equipoDao.findById(id);
+@Transactional
+public ModelAndView deleteEquipo(@PathVariable long id) {
+    ModelAndView model = new ModelAndView();
+    
+    Optional<Equipo> equipoOptional = equipoDao.findById(id);
 
-        if (equipoOptional.isPresent()) {
-            Equipo equipo = equipoOptional.get();
+    if (equipoOptional.isPresent()) {
+        Equipo equipo = equipoOptional.get();
 
-            // Obtener una lista de IDs de partidos asociados al equipo
-            List<Long> idsPartidos = new ArrayList<>();
-            for (Juega juega : equipo.getJuegas()) {
-                idsPartidos.add(juega.getPartido().getId());
-            }
+        List<Partido> partidosAsociados = partidoDao.findByEquipoLocalOrEquipoVisitante(equipo, equipo);
+        partidoDao.deleteAll(partidosAsociados);
 
-            // Eliminar todos los registros de Juega asociados a los IDs de partidos
-            juegaDao.deleteByPartidoIdIn(idsPartidos);
-
-            // Ahora puedes eliminar el equipo y sus relaciones
-            equipoDao.deleteById(id);
-        }
-
-        model.setViewName("redirect:/equipos");
-        return model;
+        equipoDao.deleteById(id);
     }
+
+    model.setViewName("redirect:/equipos");
+    return model;
+}
+
     @GetMapping("equipo/add")
     public ModelAndView addJugador() {
 
@@ -105,15 +101,6 @@ public class EquipoController {
         model.setViewName("redirect:/equipos");
         Optional<Equipo> existingEquipoOptional = equipoDao.findById(equipo.getId());
         if (existingEquipoOptional.isPresent()) {
-            Equipo existingEquipo = existingEquipoOptional.get();
-            existingEquipo.setNombre(equipo.getNombre());
-            existingEquipo.setEmailContacto(equipo.getEmailContacto());
-            existingEquipo.setNumeroTelefonoContacto(equipo.getNumeroTelefonoContacto());
-            existingEquipo.setJugadores(equipo.getJugadores());
-            existingEquipo.setCategoria(equipo.getCategoria());
-    
-            equipoDao.save(existingEquipo);
-        } else {
             equipoDao.save(equipo);
         }
         model.addObject("equipos", equipoDao.findAll());

@@ -3,8 +3,6 @@ package com.mario.proyect.jugador;
 import com.mario.proyect.equipo.Equipo;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -24,7 +22,11 @@ public class Jugador {
 	@ManyToOne
     @JoinColumn(name = "equipo_id", nullable = true)
     private Equipo equipo;
-
+	
+	//private void goleadores
+	
+	
+	
 	public String getDni() {
 		return dni;
 	}

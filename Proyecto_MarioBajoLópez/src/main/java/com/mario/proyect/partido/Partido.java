@@ -1,69 +1,85 @@
 package com.mario.proyect.partido;
 
-import java.util.List;
+import com.mario.proyect.equipo.Equipo;
 
-import com.mario.proyect.categoria.Categoria;
-import com.mario.proyect.juega.Juega;
-
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "partidos")
 public class Partido {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String resultado;
-    private String pista;
+   	@EmbeddedId 
+	private PartidoKey id; 
+	
+	@ManyToOne 
+	@MapsId("IdEquipoLocal")
+	@JoinColumn(name = "equipo_Local")
+	private Equipo equipoLocal;
 
 	@ManyToOne
-	@JoinColumn(name = "categoria_id")
-	private Categoria categoria;
+	@MapsId("IdEquipoVisitante")
+	@JoinColumn(name = "equipo_Visitante")
+	private Equipo equipoVisitante;
+	
+    private String golesLocal;
+	private String golesVisitante;
+	private String pista;
 
-    @OneToMany(mappedBy = "partido", cascade = CascadeType.ALL)
-    private List<Juega> juegas;
-    
-	public long getId() {
+	public PartidoKey getId() {
 		return id;
 	}
-	public void setId(long id) {
+
+	public void setId(PartidoKey id) {
 		this.id = id;
 	}
-	public String getResultado() {
-		return resultado;
-	}
-	public void setResultado(String resultado) {
-		this.resultado = resultado;
-	}
+
 	public String getPista() {
 		return pista;
 	}
+
 	public void setPista(String pista) {
 		this.pista = pista;
 	}
-	public Categoria getCategoria() {
-		return categoria;
+	
+	public String getGolesLocal() {
+		return golesLocal;
 	}
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+
+	public void setGolesLocal(String golesLocal) {
+		this.golesLocal = golesLocal;
 	}
-	public List<Juega> getJuegas() {
-        return juegas;
-    }
-    public void setJuegas(List<Juega> juegas) {
-        this.juegas = juegas;
-    }
+
+	public String getGolesVisitante() {
+		return golesVisitante;
+	}
+
+	public void setGolesVisitante(String golesVisitante) {
+		this.golesVisitante = golesVisitante;
+	}
+	
+	public Equipo getEquipoLocal() {
+		return equipoLocal;
+	}
+
+	public void setEquipoLocal(Equipo equipoLocal) {
+		this.equipoLocal = equipoLocal;
+	}
+
+	public Equipo getEquipoVisitante() {
+		return equipoVisitante;
+	}
+
+	public void setEquipoVisitante(Equipo equipoVisitante) {
+		this.equipoVisitante = equipoVisitante;
+	}
+
 	@Override
 	public String toString() {
-		return "Partido [id=" + id + ", resultado=" + resultado + "]";
+		return "Partido [id=" + id + "," + golesLocal + " : " + golesVisitante + equipoLocal + equipoVisitante +"]";
 	}
 }

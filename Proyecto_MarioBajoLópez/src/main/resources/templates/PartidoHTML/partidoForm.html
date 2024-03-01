@@ -4,48 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>Formulario de Creación de Partidos</title>
-  <style>
-    /* Estilo personalizado para los elementos option */
-    .form-control option {
-        background-color: #f8f9fa; /* Fondo gris suave */
-        border-radius: 5px; /* Esquinas redondeadas */
-        padding: 8px; /* Espaciado interno */
-    }
-</style>
+  <title>Formulario de Partidos</title>
 </head>
 <body>
 
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <h2 class="text-center mb-4">Crear Nuevo Partido</h2>
+      <h2 class="text-center mb-4">Formulario del Partido</h2>
       <form th:action="@{~/partido/save}" method="post" th:object="${partidoNuevo}">
         <div class="form-group">
-          <label for="id" hidden>ID</label>
-          <input type="text" class="form-control" id="id" placeholder="ID" required th:field="*{id}" readonly hidden>
-          <label for="nombreEquipo">Resultado del partido:</label>
-          <input type="text" class="form-control" id="nombreEquipo" placeholder="Ingrese el resultado" required th:field="*{resultado}">
         </div>
-      
-      <div class="form-group">
+        <div class="form-group">
+          <label for="golesLocal">Resultado del partido:</label>
+          <input type="number" class="form-control" id="golesLocal" placeholder="Ingrese los goles del equipo Local" required th:field="*{golesLocal}">
+        </div>
+        <div class="form-group">
+          <label for="golesVisitante">Resultado del partido:</label>
+          <input type="number" class="form-control" id="golesVisitante" placeholder="Ingrese los goles del equipo Visitante" required th:field="*{golesVisitante}">
+        </div>
+        <div class="form-group">
           <label for="pista">Pista:</label>
           <select class="form-control rounded bg-light" id="pista" th:field="*{pista}" required>
-              <option value="Sara Roces">Sara Roces</option>
-              <option value="Marta Piquero">Marta Piquero</option>
+            <option value="Sara Roces">Sara Roces</option>
+            <option value="Marta Piquero">Marta Piquero</option>
           </select>
-      </div>
-      
-      <div class="form-group">
-          <label for="categoria">Categoria:</label>
-          <select class="form-control rounded bg-light" id="categoria" th:field="*{categoria}" required>
-              <option th:each="categoriaItem : ${categorias}" th:value="${categoriaItem.id}" th:text="${categoriaItem.nombre}"></option>
+        </div>
+        <div class="form-group">
+          <label for="equipoLocal">Equipo Local:</label>
+          <select class="form-control rounded bg-light" id="equipoLocal" th:field="*{equipoLocal}" required>
+            <option th:each="equipo:${equipos}" th:text="${equipo.nombre}" th:value="${equipo.id}"></option>
           </select>
-      </div>
-      
-        </div>     
-
-        <input type="submit" class="btn btn-primary" value="Añadir Equipo">
+        </div>   
+        <div class="form-group">
+          <label for="equipoVisitante">Equipo Visitante:</label>
+          <select class="form-control rounded bg-light" id="equipoVisitante" th:field="*{equipoVisitante}" required>
+            <option th:each="equipo:${equipos}" th:text="${equipo.nombre}" th:value="${equipo.id}"></option>
+          </select>
+        </div>  
+        <input type="submit" class="btn btn-primary" value="Añadir Partido">
       </form>
     </div>
   </div>

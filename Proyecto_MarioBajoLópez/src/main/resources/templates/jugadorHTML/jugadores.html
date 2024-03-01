@@ -147,7 +147,11 @@
             <a class="btn btn-success float-right m-2" th:href="@{/jugadores/tallaCamiseta(tallaCamiseta=tallaCamiseta)}">Filtrar por Talla Camiseta</a>
             <a class="btn btn-success float-right m-2" th:href="@{/jugadores/equipo(equipo=equipo)}">Filtrar por Equipo</a>
         </h2>
-        <table class="table table-hover table-striped">
+        <div th:if="${#lists.isEmpty(jugadores)}" class="m-2">
+          <h3>La tabla de Equipos esta vacía</h3>
+          <a class="btn btn-primary float-right m-2" th:href="@{~/equipo/add}" th:if="${#lists.isEmpty(jugadores)}">Añadir Equipo</a>
+        </div>
+        <table class="table table-hover table-striped" th:if="${not#lists.isEmpty(jugadores)}">
             <thead>
                 <tr>
                     <th scope="col">#</th>

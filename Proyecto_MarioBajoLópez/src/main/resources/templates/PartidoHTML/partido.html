@@ -35,16 +35,17 @@
 <body>
 
     <div class="card">
-        <div class="card-body" th:each="partido : ${partido}">
+        <div class="card-body" th:each="p : ${partido}">
             <h2 class="card-title">Detalles del Partido</h2>
-            <span><strong>ID:</strong><span th:text="${partido.id}">id</span></span><br>
-            <span><strong>Resultado:</strong>LOCAL <span th:text="${partido.resultado}">equipo</span> VISITANTE</span><br>
-            <span><strong>Pista:</strong><span th:text="${partido.pista}">email</span></span><br>
-            <span><strong>Categoria:</strong><span th:text="${partido.categoria.nombre}">telefono</span></span><br>
+            <span><strong>Equipo Local:</strong><span th:text="${p.equipoLocal?.nombre}"></span></span><br>
+            <span><strong>Resultado:</strong>LOCAL<span th:text="${p.golesLocal}"></span>-<span th:text="${p.golesVisitante}"></span>VISITANTE<br>
+            <span><strong>Equipo Visitante:</strong><span th:text="${p.equipoVisitante?.nombre}"></span></span><br>
+            <span><strong>Pista:</strong><span th:text="${p.pista}">email</span></span><br>
             <div class="mt-4">
                 <span><a th:href="@{~/partidos}" class="btn btn-secondary">Volver</a></span>
-                <span><a th:href="@{~/partido/edit/{id}(id = ${partido.id})}" class="btn btn-primary ml-2">Editar</a></span>
+                <span><a th:href="@{~/partido/edit/{idLocal}/{idVisitante}(idLocal=${p.equipoLocal?.id}, idVisitante=${p.equipoVisitante?.id})}" class="btn btn-primary ml-2">Editar</a></span>
             </div>
+            
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

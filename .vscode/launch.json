@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectoMarioBajoLopezApplication<Proyecto_MarioBajoLopez>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mario.proyect.ProyectoMarioBajoLopezApplication",
+            "projectName": "Proyecto_MarioBajoLopez",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

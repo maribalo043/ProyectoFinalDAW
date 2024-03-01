@@ -1,0 +1,13 @@
+package com.mario.proyect.partido;
+
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class PartidoKey {
+
+    private long IdEquipoLocal;
+    private long IdEquipoVisitante;
+
+    
+    
+}

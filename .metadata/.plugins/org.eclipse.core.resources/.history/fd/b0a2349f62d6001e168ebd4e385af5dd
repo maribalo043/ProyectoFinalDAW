@@ -1,0 +1,160 @@
+package com.mario.proyect.equipo;
+
+import java.util.List;
+
+import com.mario.proyect.PartidoEquipo.PartidoEquipo;
+import com.mario.proyect.categoria.Categoria;
+import com.mario.proyect.jugador.Jugador;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "equipos")
+public class Equipo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String nombre;
+    private String emailContacto;
+    private int numeroTelefonoContacto;
+    private int numeroJugadores;
+    private int puntos;
+    private int golesFavor;
+    private int golesContra;
+    private int partidosGanados;
+    private int partidosPerdidos;
+    private int partidosEmpatados;
+
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+    private List<Jugador> jugadores;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
+	@OneToMany(mappedBy = "equipoLocal", cascade = CascadeType.ALL)
+    private List<PartidoEquipo> equiposLocal;
+
+    @OneToMany(mappedBy = "equipoVisitante", cascade = CascadeType.ALL)
+    private List<PartidoEquipo> equiposVisitante;
+
+    // Getters
+    public long getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEmailContacto() {
+        return emailContacto;
+    }
+
+    public int getNumeroTelefonoContacto() {
+        return numeroTelefonoContacto;
+    }
+
+    public int getNumeroJugadores() {
+        return numeroJugadores;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public int getGolesFavor() {
+        return golesFavor;
+    }
+
+    public int getGolesContra() {
+        return golesContra;
+    }
+
+    public int getPartidosGanados() {
+        return partidosGanados;
+    }
+
+    public int getPartidosPerdidos() {
+        return partidosPerdidos;
+    }
+
+    public int getPartidosEmpatados() {
+        return partidosEmpatados;
+    }
+
+    public List<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    // Setters
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setEmailContacto(String emailContacto) {
+        this.emailContacto = emailContacto;
+    }
+
+    public void setNumeroTelefonoContacto(int numeroTelefonoContacto) {
+        this.numeroTelefonoContacto = numeroTelefonoContacto;
+    }
+
+    public void setNumeroJugadores(int numeroJugadores) {
+        this.numeroJugadores = numeroJugadores;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
+    public void setGolesFavor(int golesFavor) {
+        this.golesFavor = golesFavor;
+    }
+
+    public void setGolesContra(int golesContra) {
+        this.golesContra = golesContra;
+    }
+
+    public void setPartidosGanados(int partidosGanados) {
+        this.partidosGanados = partidosGanados;
+    }
+
+    public void setPartidosPerdidos(int partidosPerdidos) {
+        this.partidosPerdidos = partidosPerdidos;
+    }
+
+    public void setPartidosEmpatados(int partidosEmpatados) {
+        this.partidosEmpatados = partidosEmpatados;
+    }
+
+    public void setJugadores(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipo [id=" + id + ", nombre=" + nombre + "]";
+    }
+}

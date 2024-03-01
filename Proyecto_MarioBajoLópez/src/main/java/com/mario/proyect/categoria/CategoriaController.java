@@ -1,5 +1,6 @@
 package com.mario.proyect.categoria;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mario.proyect.equipo.Equipo;
+import com.mario.proyect.equipo.EquipoDAO;
+import com.mario.proyect.partido.PartidoDAO;
 
 
 
@@ -19,6 +22,10 @@ public class CategoriaController {
 
     @Autowired
     CategoriaDAO categoriaDao;
+    @Autowired
+    EquipoDAO equipoDao;
+    @Autowired 
+    PartidoDAO partidoDao;
 
     @GetMapping("/categorias")
     public ModelAndView getCategorias() {
@@ -48,34 +55,41 @@ public class CategoriaController {
 
         return model;
     }
+    @SuppressWarnings("null")
     @GetMapping("/categoria/del/{id}")
-    public ModelAndView deleteCategoria(@PathVariable long id){
+    public ModelAndView deleteCategoria(@PathVariable long id) {
+    ModelAndView model = new ModelAndView();
+    model.setViewName("redirect:/categorias");
 
-        ModelAndView model = new ModelAndView();
-        model.setViewName("redirect:/categorias");
-        if(categoriaDao.findById(id).isPresent()){
-            categoriaDao.deleteById(id);
-        }
-        return model;
+    Optional<Categoria> categoriaOptional = categoriaDao.findById(id);
+
+    if (categoriaOptional.isPresent()) {
+        Categoria categoria = categoriaOptional.get();
+
+        // Obtener equipos de la categoría
+        List<Equipo> equipos = categoria.getEquipos();
+
+        // Desvincular la categoría en los equipos de la categoría
+        equipos.forEach(equipo -> equipo.setCategoria(null));
+        equipoDao.saveAll(equipos);
+        
+        // Eliminar la categoría
+        categoriaDao.deleteById(id);
     }
+
+    return model;
+}
+
+    @SuppressWarnings("unused")
     @PostMapping("categoria/save")
     public ModelAndView saveCategoria(@ModelAttribute Categoria categoriaNueva){
 
         ModelAndView model = new ModelAndView();
         model.setViewName("redirect:/categorias");
         Optional<Categoria> categoriaOpcional = categoriaDao.findById(categoriaNueva.getId());
-        if(categoriaOpcional.isPresent()){
-            Categoria categoria = categoriaOpcional.get();
-            categoria.setId(categoriaNueva.getId());
-            categoria.setNombre(categoriaNueva.getNombre());
-            categoria.setActiva(categoriaNueva.isActiva());
-            categoria.setEquipos(categoriaNueva.getEquipos());
-            categoria.setPartidos(categoriaNueva.getPartidos());
 
-            categoriaDao.save(categoria);
-        } else {
-            categoriaDao.save(categoriaNueva);
-        }
+        categoriaDao.save(categoriaNueva);
+        
         return model;
     }
     @GetMapping("categoria/edit/{id}")

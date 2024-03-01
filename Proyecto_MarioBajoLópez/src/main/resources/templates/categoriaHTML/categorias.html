@@ -10,7 +10,7 @@
 
     <div class="container mt-5">
         <h2 class="text-start mb-4">Lista de Categorias
-            <a class="btn btn-primary float-right m-2" th:href="@{~/categoria/add}">Añadir Categoria</a>
+            <a class="btn btn-primary float-right m-2" th:href="@{~/categoria/add}" th:if="${not #lists.isEmpty(categorias)}">Añadir Categoria</a>
         </h2>
         <div th:if="${#lists.isEmpty(categorias)}">
             <h3>La tabla de Categorias esta vacia, Añada usted la primera Categoría</h3>

@@ -79,12 +79,7 @@ public class JugadorController {
     
         Optional<Jugador> jugadorExistente = jugadorDao.findById(jugadorNuevo.getDni());
 
-        if (jugadorExistente.isPresent() && jugadorExistente.get().equals(jugadorNuevo)) {
-            jugadorDao.deleteById(jugadorNuevo.getDni());
-            jugadorDao.save(jugadorNuevo);
-        } else {
-            jugadorDao.save(jugadorNuevo);
-        }
+        jugadorDao.save(jugadorNuevo);
 
         model.setViewName("redirect:/jugadores");
         return model;

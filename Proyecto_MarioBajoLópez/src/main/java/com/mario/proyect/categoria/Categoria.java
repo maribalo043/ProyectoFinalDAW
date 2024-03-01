@@ -2,7 +2,6 @@ package com.mario.proyect.categoria;
 import java.util.List;
 
 import com.mario.proyect.equipo.Equipo;
-import com.mario.proyect.partido.Partido;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,12 +22,9 @@ public class Categoria {
     private String nombre;
     private boolean activa;
 
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoria")
     private List<Equipo> equipos;
 	
-	@OneToMany(mappedBy = "categoria",cascade = CascadeType.ALL)
-    private List<Partido> partidos;
-    
 	public long getId() {
 		return id;
 	}
@@ -53,12 +49,8 @@ public class Categoria {
 	public void setEquipos(List<Equipo> equipos) {
 		this.equipos = equipos;
 	}
-	public List<Partido> getPartidos() {
-		return partidos;
-	}
-	public void setPartidos(List<Partido> partidos) {
-		this.partidos = partidos;
-	}
+	
+	
 	
 	@Override
 	public String toString() {
