@@ -79,7 +79,7 @@ public ModelAndView deletePartido(@PathVariable long idLocal, @PathVariable long
     	model.addObject("partidoNuevo",new Partido());
         model.addObject("equipos",equipoDao.findAll());
 
-    	return model;  	
+    	return model;	
     }
 
     @SuppressWarnings("null")
