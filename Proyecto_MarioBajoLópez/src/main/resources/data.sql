@@ -30,3 +30,8 @@ INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_
 INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1234567D','Mario',1234,'3XL',false,1);
 INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1634567D','Mario',1234,'S',true,2);
 INSERT INTO jugadores (dni, nombre, numero_Seguro,talla_Camiseta,portero,equipo_id) VALUES ('1234527D','Mario',1234,'3XS',false,2);
+
+/*La contraseña es mario*/
+INSERT INTO Usuario (usuario,password) VALUES ('mario','$2a$12$MwHuCgJDFt4qZQaK28VyieKCR61gyk42n8ntG1QPeluwMqBJEIK3i');
+/*La contraseña es marcos*/
+INSERT INTO Usuario (usuario,password) VALUES ('marcos','$2a$12$5656XO6Vyk2OCZeqCkunQe.tZ6LnoGfMATGkyAbPUiffhGY0ThGpy');

@@ -54,6 +54,9 @@ public class EquipoController {
         ModelAndView model = new ModelAndView();
         if(equipoDao.findById(id).isPresent()){
             model.addObject("equipo", equipoDao.findById(id).get());
+            model.addObject("partidos", partidoDao.obtenerPartidosPorEquipo(id));
+            model.addObject("partidoNuevo", new Partido());
+            model.addObject("equipos", equipoDao.obtenerEquiposExceptoPorId(id));
             model.setViewName("equipoHTML/equipo");
         }else{
             model.setViewName("equipoHTML/equipos");
