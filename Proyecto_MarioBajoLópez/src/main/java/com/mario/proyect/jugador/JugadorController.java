@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mario.proyect.equipo.EquipoDAO;
 import com.mario.proyect.partido.Partido;
 
+import jakarta.validation.Valid;
+
 
 @Controller
 public class JugadorController {
@@ -76,26 +78,22 @@ public class JugadorController {
 
     @SuppressWarnings("null")
     @PostMapping("/jugador/save")
-    public ModelAndView saveJugador(@ModelAttribute Jugador jugadorNuevo, BindingResult bindingResult) {
-        ModelAndView model = new ModelAndView();
+    public ModelAndView saveJugador(@ModelAttribute("jugadorNuevo") @Valid Jugador jugadorNuevo, BindingResult bindingResult) {
+    ModelAndView model = new ModelAndView();
 
-        System.out.println("Devolviendo modelo...");
-        if(bindingResult.hasErrors()){
-            System.out.println("Devolviendo modelo...");
-            model.addObject("jugadorNuevo", new Jugador());
-            model.addObject("equipos", equipoDao.findAll());
-            model.addObject("equipoItem",equipoDao.findAll());
-            model.setViewName("jugadorHTML/jugadoresForm");
-            
-            return model;
-        }
-        jugadorDao.save(jugadorNuevo);
-
-        model.setViewName("redirect:/jugadores");
+    if (bindingResult.hasErrors()) {
+        model.addObject("jugadorNuevo", jugadorNuevo);
+        model.addObject("equipos", equipoDao.findAll());
+        model.addObject("equipoItem",equipoDao.findAll());
+        model.setViewName("jugadorHTML/jugadoresForm");
         return model;
     }
 
+    jugadorDao.save(jugadorNuevo);
 
+    model.setViewName("redirect:/jugadores");
+    return model;
+    }
 
     @GetMapping("/jugador/edit/{dni}")
     public ModelAndView editJugador(@PathVariable String dni){

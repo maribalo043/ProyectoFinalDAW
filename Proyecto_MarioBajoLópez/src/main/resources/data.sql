@@ -4,18 +4,18 @@ INSERT INTO categorias (nombre,activa) VALUES ('Promesas',true);
 INSERT INTO categorias (nombre,activa) VALUES ('Estrellas',true);
 INSERT INTO categorias (nombre,activa) VALUES ('Ok Masters',true);
 
-INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,numero_Jugadores,puntos,goles_Favor,goles_Contra,
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,puntos,goles_Favor,goles_Contra,
 partidos_Ganados,partidos_Perdidos,partidos_Empatados,categoria_id) VALUES ('Jaimitos','correo@ejemplo.com',
-123456789,15,0,0,0,0,0,0,1);
-INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,numero_Jugadores,puntos,goles_Favor,goles_Contra,
+123456789,15,0,0,0,0,0,1);
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,puntos,goles_Favor,goles_Contra,
 partidos_Ganados,partidos_Perdidos,partidos_Empatados,categoria_id) VALUES ('Pepitos','correo@ejemplo.com',
-123456789,15,0,0,0,0,0,0,1);
-INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,numero_Jugadores,puntos,goles_Favor,goles_Contra,
+123456789,15,0,0,0,0,0,1);
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,puntos,goles_Favor,goles_Contra,
 partidos_Ganados,partidos_Perdidos,partidos_Empatados,categoria_id) VALUES ('Manolitas','correo@ejemplo.com',
-123456789,15,0,0,0,0,0,0,1);
-INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,numero_Jugadores,puntos,goles_Favor,goles_Contra,
+123456789,15,0,0,0,0,0,1);
+INSERT INTO equipos (nombre,email_Contacto,numero_Telefono_Contacto,puntos,goles_Favor,goles_Contra,
 partidos_Ganados,partidos_Perdidos,partidos_Empatados,categoria_id) VALUES ('Jositos','correo@ejemplo.com',
-123456789,15,0,0,0,0,0,0,1);
+123456789,15,0,0,0,0,0,1);
 
 INSERT INTO partidos (goles_Local, goles_Visitante, pista, equipo_Local, equipo_Visitante) VALUES (5,1,'Sara Roces',1,2);
 INSERT INTO partidos (goles_Local, goles_Visitante, pista, equipo_Local, equipo_Visitante) VALUES (8,9,'Sara Roces',3,4);

@@ -16,9 +16,9 @@ import jakarta.validation.constraints.Size;
 public class Jugador {
 
     @Id
-	@Pattern(regexp = "/^\\d{8}[A-Z]$/\\r\\n",message = "Dale formato de DNI, 8 numeros y 1 letra mayúscula")
+    @Pattern(regexp = "\\d{8}[A-Z]", message = "Dale formato de DNI, 8 números y 1 letra mayúscula")
     private String dni;
-	@Size(min=4,max=15, message="Debe de tener entre 5 y 100 caracteres")
+	@Size(min = 5, max = 100, message = "Debe tener entre 5 y 100 caracteres")
     private String nombre;
 	@Min(value = 10,message="El numero de seguro minimo tiene 10 números")
     private String numeroSeguro;

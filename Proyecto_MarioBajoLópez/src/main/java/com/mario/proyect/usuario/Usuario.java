@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import jakarta.persistence.Entity;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;

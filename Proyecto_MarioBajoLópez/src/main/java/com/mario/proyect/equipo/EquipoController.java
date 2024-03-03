@@ -18,6 +18,7 @@ import com.mario.proyect.partido.Partido;
 import com.mario.proyect.partido.PartidoDAO;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping; 
 
@@ -68,8 +69,7 @@ public class EquipoController {
 
     @SuppressWarnings("null")
     @GetMapping("/equipo/del/{id}")
-@Transactional
-public ModelAndView deleteEquipo(@PathVariable long id) {
+    public ModelAndView deleteEquipo(@PathVariable long id) {
     ModelAndView model = new ModelAndView();
     
     Optional<Equipo> equipoOptional = equipoDao.findById(id);
@@ -99,27 +99,27 @@ public ModelAndView deleteEquipo(@PathVariable long id) {
     }
 
     @PostMapping("/equipo/save")
-    public ModelAndView saveEquipo(@ModelAttribute Equipo equipo, BindingResult bindingResult ) {
+public ModelAndView saveEquipo(@ModelAttribute @Valid Equipo equipo, BindingResult bindingResult) {
+    ModelAndView model = new ModelAndView();
 
-        ModelAndView model = new ModelAndView();
-        /*Revisar que todo se setea o ver si se guarda etc*/
-        if(bindingResult.hasErrors()){
-            model.addObject("equipoNuevo",new Equipo());
-            
-            model.addObject("categorias",categoriaDao.categoriasActive());
-            model.setViewName("equipoHTML/equipoForm");
-
-            return model;
-
-        }
-        model.setViewName("redirect:/equipos");
-        Optional<Equipo> existingEquipoOptional = equipoDao.findById(equipo.getId());
-        if (existingEquipoOptional.isPresent()) {
-            equipoDao.save(equipo);
-        }
-        model.addObject("equipos", equipoDao.findAll());
+    if(bindingResult.hasErrors()){
+        model.addObject("equipoNuevo",equipo);
+        model.addObject("categorias",categoriaDao.categoriasActive());
+        model.setViewName("equipoHTML/equipoForm");
         return model;
     }
+
+    model.setViewName("redirect:/equipos");
+    // La lógica para guardar o actualizar el equipo
+    Optional<Equipo> existingEquipoOptional = equipoDao.findById(equipo.getId());
+    if (existingEquipoOptional.isPresent()) {
+        equipoDao.save(equipo);
+    }
+
+    model.addObject("equipos", equipoDao.findAll());
+    return model;
+}
+
     
 
     @GetMapping("equipo/edit/{id}")
