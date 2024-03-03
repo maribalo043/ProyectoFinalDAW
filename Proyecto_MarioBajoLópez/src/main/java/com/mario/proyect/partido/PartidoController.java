@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -84,8 +85,22 @@ public ModelAndView deletePartido(@PathVariable long idLocal, @PathVariable long
 
     @SuppressWarnings("null")
     @PostMapping("/partido/save")
-    public ModelAndView savePartido(@ModelAttribute Partido partidoNuevo) {
+    public ModelAndView savePartido(@ModelAttribute Partido partidoNuevo, BindingResult bindingResult) {
+
+        
     ModelAndView model = new ModelAndView();
+    /*, BindingResult bindingResult */
+    /*Revisar que todo se setea o ver si se guarda etc*/
+    if(bindingResult.hasErrors()){
+        model.setViewName("partidoForm");
+
+        model.setViewName("partidoHTML/partidoForm");
+    	model.addObject("partidoNuevo",new Partido());
+        model.addObject("equipos",equipoDao.findAll());
+
+        return model;
+
+    }
     model.setViewName("redirect:/partidos");
 
     if (partidoNuevo.getId() != null) {

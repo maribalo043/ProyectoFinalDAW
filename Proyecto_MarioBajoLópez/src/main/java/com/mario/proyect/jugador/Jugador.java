@@ -7,14 +7,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "jugadores")
 public class Jugador {
 
     @Id
+	@Pattern(regexp = "/^\\d{8}[A-Z]$/\\r\\n",message = "Dale formato de DNI, 8 numeros y 1 letra mayúscula")
     private String dni;
+	@Size(min=4,max=15, message="Debe de tener entre 5 y 100 caracteres")
     private String nombre;
+	@Min(value = 10,message="El numero de seguro minimo tiene 10 números")
     private String numeroSeguro;
     private String tallaCamiseta;
     private boolean portero;
@@ -22,10 +28,6 @@ public class Jugador {
 	@ManyToOne
     @JoinColumn(name = "equipo_id", nullable = true)
     private Equipo equipo;
-	
-	//private void goleadores
-	
-	
 	
 	public String getDni() {
 		return dni;

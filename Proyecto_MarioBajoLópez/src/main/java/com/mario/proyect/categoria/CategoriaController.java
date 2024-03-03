@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mario.proyect.equipo.Equipo;
 import com.mario.proyect.equipo.EquipoDAO;
+import com.mario.proyect.partido.Partido;
 import com.mario.proyect.partido.PartidoDAO;
 
 
@@ -82,9 +84,18 @@ public class CategoriaController {
 
     @SuppressWarnings("unused")
     @PostMapping("categoria/save")
-    public ModelAndView saveCategoria(@ModelAttribute Categoria categoriaNueva){
+    public ModelAndView saveCategoria(@ModelAttribute Categoria categoriaNueva, BindingResult bindingResult ){
 
         ModelAndView model = new ModelAndView();
+        /*Revisar que todo se setea o ver si se guarda etc*/
+        if(bindingResult.hasErrors()){
+            model.setViewName("categoriaHTML/categoriaForm");
+            
+            model.addObject("categoriaNueva", new Categoria());
+
+            return model;
+
+        }
         model.setViewName("redirect:/categorias");
         Optional<Categoria> categoriaOpcional = categoriaDao.findById(categoriaNueva.getId());
 

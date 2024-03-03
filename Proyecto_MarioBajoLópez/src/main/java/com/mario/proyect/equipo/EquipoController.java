@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -98,9 +99,19 @@ public ModelAndView deleteEquipo(@PathVariable long id) {
     }
 
     @PostMapping("/equipo/save")
-    public ModelAndView saveEquipo(@ModelAttribute Equipo equipo) {
+    public ModelAndView saveEquipo(@ModelAttribute Equipo equipo, BindingResult bindingResult ) {
 
         ModelAndView model = new ModelAndView();
+        /*Revisar que todo se setea o ver si se guarda etc*/
+        if(bindingResult.hasErrors()){
+            model.addObject("equipoNuevo",new Equipo());
+            
+            model.addObject("categorias",categoriaDao.categoriasActive());
+            model.setViewName("equipoHTML/equipoForm");
+
+            return model;
+
+        }
         model.setViewName("redirect:/equipos");
         Optional<Equipo> existingEquipoOptional = equipoDao.findById(equipo.getId());
         if (existingEquipoOptional.isPresent()) {

@@ -6,9 +6,82 @@
     <title>Equipos y Atributos</title>
     <!-- Agrega la referencia a Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+          font-family: "Arial", sans-serif;
+          background-color: white;
+          scrollbar-width: thin;
+          scrollbar-color: #00794d transparent;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: "Roboto", sans-serif;
+        }
+        p {
+          font-family: "Open Sans", sans-serif;
+        }
+        .navbar {
+          background-color: #d41a1e;
+        }
+        .navbar-brand img {
+          width: 40px;
+          margin-right: 10px;
+        }
+        .navbar-brand a {
+          color: white;
+        }
+        .navbar-nav a {
+          color: white;
+        }
+        .dropdown-menu {
+          background-color: #d41a1e;
+          border: none;
+        }
+        .dropdown-item {
+          color: white;
+        }
+        .dropdown:hover .dropdown-menu {
+          display: block;
+        }
+        .caret {
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          display: inline-block;
+          padding: 3px;
+          transform: rotate(-45deg);
+          vertical-align: middle;
+        }
+        .container {
+          margin-top: 20px;
+        }
+        .footer {
+          background-color: #d41a1e;
+          color: white;
+          padding: 10px 0;
+          text-align: center;
+        }
+        .carousel-control-prev-icon {
+          background-color: red;
+          color: black;
+          padding: 10px;
+          border-radius: 10px;
+        }
+        .carousel-control-next-icon {
+          background-color: red;
+          color: black;
+          padding: 10px;
+          border-radius: 10px;
+        }
+      </style>
 </head>
 <body>
-
+    <header>
+        <div class="row" th:replace="~{BarraNavegacion :: menuSuperior}"></div>
+      </header>
     <div class="container mt-5">
         <h2 class="text-start mb-4">Lista de Equipos
             <a class="btn btn-primary float-right m-2" th:href="@{~/equipo/add}" th:if="${not #lists.isEmpty(equipos)}">Añadir Equipo</a>

@@ -14,6 +14,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "equipos")
@@ -22,16 +25,20 @@ public class Equipo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+    @Size(min=1,max=50,message = "El minimo es 1 y el maximo es 50")
     private String nombre;
+	@Email(message = "Dale del formato de una dirección de correo electrónico. EJ: ejemplo@email.com")
     private String emailContacto;
+	@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Debe de tener al menos 6 digitos y como mucho 9")
     private int numeroTelefonoContacto;
+	@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
     private int numeroJugadores;
-    private int puntos;
-    private int golesFavor;
-    private int golesContra;
-    private int partidosGanados;
-    private int partidosPerdidos;
+	@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
+    private int puntos;@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
+    private int golesFavor;@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
+    private int golesContra;@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
+    private int partidosGanados;@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
+    private int partidosPerdidos;@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
     private int partidosEmpatados;
     
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)

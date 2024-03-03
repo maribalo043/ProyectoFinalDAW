@@ -8,6 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "partidos")
@@ -26,7 +27,9 @@ public class Partido {
 	@JoinColumn(name = "equipo_Visitante")
 	private Equipo equipoVisitante;
 	
+	@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
     private String golesLocal;
+	@Pattern(regexp = "^[6-9]\\d{8}$\r\n",message = "Tiene que ser un numero entero positivo")
 	private String golesVisitante;
 	private String pista;
 

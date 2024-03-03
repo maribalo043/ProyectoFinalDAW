@@ -16,14 +16,17 @@
           <div class="form-group">
             <label for="dni">DNI:</label>
             <input type="text" class="form-control" id="dni" placeholder="Ingrese el DNI" th:field="*{dni}" required>
+            <p th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">Nombre Error</p>
           </div>
           <div class="form-group">
             <label for="nombre">Nombre y apellidos del Jugador:</label>
             <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" th:field="*{nombre}">
+            <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Nombre Error</p>
           </div>
           <div class="form-group">
-            <label for="numSeguro">Número de Seguro:</label>
-            <input type="text" class="form-control" id="numSeguro" placeholder="Ingrese el número de seguro" size="20" th:field="*{numeroSeguro}">
+            <label for="numeroSeguro">Número de Seguro:</label>
+            <input type="text" class="form-control" id="numeroSeguro" placeholder="Ingrese el número de seguro" size="20" th:field="*{numeroSeguro}">
+            <p th:if="${#fields.hasErrors('numeroSeguro')}" th:errors="*{numeroSeguro}">Nombre Error</p>
           </div>
           <div class="form-group">
             <label for="tallaCamiseta">Talla de Camiseta:</label>

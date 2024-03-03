@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
@@ -20,26 +21,26 @@ public class SecurityConfig {
 
 	   @Bean
 	   AuthenticationManager authenticationManager(
-			   HttpSecurity http, 
-			   BCryptPasswordEncoder bCryptPasswordEncoder, 
-			   UserDetailsService userDetailsService) throws Exception {
+			   	HttpSecurity http, 
+			   	BCryptPasswordEncoder bCryptPasswordEncoder, 
+			   	UserDetailsService userDetailsService) throws Exception {
 		   
-	       return http.getSharedObject(AuthenticationManagerBuilder.class)
-	         .userDetailsService(userDetailsService)
-	         .passwordEncoder(bCryptPasswordEncoder)
-	         .and()
-	         .build();
-	   }
-       /*Acceso a Rutas */
-       /*@Bean
+	       	return http.getSharedObject(AuthenticationManagerBuilder.class)
+	        .userDetailsService(userDetailsService)
+	        .passwordEncoder(bCryptPasswordEncoder)
+	        .and()
+	        .build();
+	   	}
+       	/*Acceso a Rutas */
+       	@Bean
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.requestMatchers("/").permitAll()	
-			.requestMatchers("/plan", "/enmarca").authenticated()
-			.requestMatchers("/plan/delete/**").hasAuthority("ADMIN")
+			.requestMatchers("/").permitAll()
+			.requestMatchers("/jugadores/**", "/equipos/**", "/categorias/**", "/partidos/**").authenticated()
+			.requestMatchers("/jugadores/del/**", "/equipos/del/**", "/categorias/del/**", "/partidos/del/**").hasAuthority("ADMIN")
 			.and()
 			.formLogin();
-	
+
 		return http.build();
-	}*/
+	}
 }
