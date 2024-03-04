@@ -3,6 +3,8 @@ package com.mario.proyect.jugador;
 import com.mario.proyect.equipo.Equipo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -16,6 +18,8 @@ import jakarta.validation.constraints.Size;
 public class Jugador {
 
     @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
     @Pattern(regexp = "\\d{8}[A-Z]", message = "Dale formato de DNI, 8 números y 1 letra mayúscula")
     private String dni;
 	@Size(min = 5, max = 100, message = "Debe tener entre 5 y 100 caracteres")
@@ -29,6 +33,13 @@ public class Jugador {
     @JoinColumn(name = "equipo_id", nullable = true)
     private Equipo equipo;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getDni() {
 		return dni;
 	}
@@ -70,4 +81,5 @@ public class Jugador {
 	public String toString() {
 		return "Jugador [dni=" + dni + ", nombre=" + nombre + "]";
 	}
+	
 }

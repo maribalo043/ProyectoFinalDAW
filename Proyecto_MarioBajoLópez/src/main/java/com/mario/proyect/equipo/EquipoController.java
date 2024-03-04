@@ -17,7 +17,6 @@ import com.mario.proyect.jugador.JugadorDAO;
 import com.mario.proyect.partido.Partido;
 import com.mario.proyect.partido.PartidoDAO;
 
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping; 
@@ -54,11 +53,11 @@ public class EquipoController {
     public ModelAndView getEquipo(@PathVariable long id) {
 
         ModelAndView model = new ModelAndView();
+        Equipo equipo = equipoDao.findById(id).get();
         if(equipoDao.findById(id).isPresent()){
             model.addObject("equipo", equipoDao.findById(id).get());
             model.addObject("partidos", partidoDao.obtenerPartidosPorEquipo(id));
-            model.addObject("partidoNuevo", new Partido());
-            model.addObject("equipos", equipoDao.obtenerEquiposExceptoPorId(id));
+            model.addObject("partidoNuevo", new Partido());           model.addObject("equipos",equipo.obtenerEquiposNoEnlazadosConId(equipoDao, partidoDao));
             model.setViewName("equipoHTML/equipo");
         }else{
             model.setViewName("equipoHTML/equipos");
@@ -110,11 +109,8 @@ public ModelAndView saveEquipo(@ModelAttribute @Valid Equipo equipo, BindingResu
     }
 
     model.setViewName("redirect:/equipos");
-    // La lógica para guardar o actualizar el equipo
-    Optional<Equipo> existingEquipoOptional = equipoDao.findById(equipo.getId());
-    if (existingEquipoOptional.isPresent()) {
-        equipoDao.save(equipo);
-    }
+    equipoDao.save(equipo);
+    
 
     model.addObject("equipos", equipoDao.findAll());
     return model;
@@ -134,4 +130,5 @@ public ModelAndView saveEquipo(@ModelAttribute @Valid Equipo equipo, BindingResu
         model.setViewName("equipoHTML/equipoForm");
         return model;
     }
+
 }

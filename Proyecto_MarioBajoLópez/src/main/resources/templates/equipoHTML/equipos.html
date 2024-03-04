@@ -100,7 +100,7 @@
                     <th>Correo Electrónico</th>
                     <th>Número de Teléfono</th>
                     <th>Ver</th>
-                    <th>Eliminar</th>
+                    <th sec:authorize="hasAuthority('ADMIN')">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -111,7 +111,7 @@
                     <td th:text="${equipo.emailContacto}">equipo1@email.com</td>
                     <td th:text="${equipo.numeroTelefonoContacto}">1234567890</td>
                     <td><a class="circular-button edit-button text-decoration-none" title="Edita" th:href="@{~/equipo/{id}(id=${equipo.id})}">👁️</a></td>
-                    <td><a class="circular-button delete-button text-decoration-none" title="Eliminar" th:href="@{~/equipo/del/{id}(id = ${equipo.id})}">❌</a></td>
+                    <td sec:authorize="hasAuthority('ADMIN')"><a class="circular-button delete-button text-decoration-none" title="Eliminar" th:href="@{~/equipo/del/{id}(id = ${equipo.id})}" sec:authorize="hasAuthority('ADMIN')">❌</a></td>
                 </tr>
             </tbody>
         </table>

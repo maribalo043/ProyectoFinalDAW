@@ -112,7 +112,7 @@
                     <th>Visitante</th>
                     <th>Pista</th>
                     <th>Ver</th>
-                    <th>Eliminar</th>
+                    <th sec:authorize="hasAuthority('ADMIN')">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -124,8 +124,8 @@
                     <td>
                         <a class="circular-button edit-button text-decoration-none" title="Edita" th:href="@{~/partido/{idLocal}/{idVisitante}(idLocal=${p.equipoLocal.id}, idVisitante=${p.equipoVisitante.id})}">👁️</a>
                     </td>
-                    <td>
-                        <a class="circular-button delete-button text-decoration-none" th:href="@{~/partido/del/{idLocal}/{idVisitante}(idLocal=${p.equipoLocal.id}, idVisitante=${p.equipoVisitante.id})}" title="Eliminar">❌</a>
+                    <td sec:authorize="hasAuthority('ADMIN')">
+                        <a class="circular-button delete-button text-decoration-none" th:href="@{~/partido/del/{idLocal}/{idVisitante}(idLocal=${p.equipoLocal.id}, idVisitante=${p.equipoVisitante.id})}" title="Eliminar" sec:authorize="hasAuthority('ADMIN')">❌</a>
                     </td>
                 </tr>
             </tbody>

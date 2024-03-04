@@ -33,6 +33,7 @@
                 required
                 th:field="*{golesLocal}"
               />
+              <p th:if="${#fields.hasErrors('golesLocal')}" th:errors="*{golesLocal}" class="btn btn-danger">Error</p>
             </div>
             <div class="form-group">
               <label for="golesVisitante">Resultado del partido:</label>
@@ -44,6 +45,7 @@
                 required
                 th:field="*{golesVisitante}"
               />
+              <p th:if="${#fields.hasErrors('golesVisitante')}" th:errors="*{golesVisitante}" class="btn btn-danger">Error</p>
             </div>
             <div class="form-group">
               <label for="pista">Pista:</label>

@@ -43,7 +43,7 @@
             <span><strong>Pista:</strong><span th:text="${p.pista}">email</span></span><br>
             <div class="mt-4">
                 <span><a th:href="@{~/partidos}" class="btn btn-secondary">Volver</a></span>
-                <span><a th:href="@{~/partido/edit/{idLocal}/{idVisitante}(idLocal=${p.equipoLocal?.id}, idVisitante=${p.equipoVisitante?.id})}" class="btn btn-primary ml-2">Editar</a></span>
+                <span sec:authorize="hasAuthority('ADMIN')"><a th:href="@{~/partido/edit/{idLocal}/{idVisitante}(idLocal=${p.equipoLocal?.id}, idVisitante=${p.equipoVisitante?.id})}" class="btn btn-primary ml-2" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
             </div>
             
         </div>

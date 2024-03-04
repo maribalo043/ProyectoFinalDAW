@@ -1,9 +1,12 @@
 package com.mario.proyect.equipo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mario.proyect.categoria.Categoria;
 import com.mario.proyect.jugador.Jugador;
+import com.mario.proyect.partido.Partido;
+import com.mario.proyect.partido.PartidoDAO;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -149,6 +152,25 @@ public class Equipo {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
+	public List<Equipo> obtenerEquiposNoEnlazadosConId(EquipoDAO equipoDao,PartidoDAO partidoDao) {
+
+        ArrayList<Equipo> allEquipos = (ArrayList<Equipo>) equipoDao.findAll();
+        allEquipos.remove(equipoDao.findById(this.id).get());
+
+        ArrayList<Partido> allPartidos = (ArrayList<Partido>) partidoDao.obtenerPartidosPorEquipo(this.id);
+        for(Partido indice : allPartidos){
+
+            Equipo equipoLocal = indice.getEquipoLocal();
+            Equipo equipoVisitante = indice.getEquipoVisitante();
+
+            allEquipos.remove(equipoLocal);
+            allEquipos.remove(equipoVisitante);
+        }
+
+        return allEquipos;
+
+    }
 
 	@Override
     public String toString() {

@@ -13,7 +13,7 @@ public interface EquipoDAO extends CrudRepository<Equipo,Long>{
     @Query(value = "SELECT * FROM equipos ORDER BY categoria_id", nativeQuery = true)
     List<Equipo> findAllByCategoria();
 
-    @Query(value = "SELECT * FROM equipos WHERE id != :equipoId", nativeQuery = true)
-    List<Equipo> obtenerEquiposExceptoPorId(@Param("equipoId") long equipoId);
-    
+    @Query(value = "SELECT * FROM equipos e WHERE e.id <> :idEquipo AND e.id NOT IN (SELECT p.equipo_Local FROM partidos p WHERE p.equipo_Local = :idEquipo UNION SELECT p.equipo_Visitante FROM partidos p WHERE p.equipo_Visitante = :idEquipo)", nativeQuery = true)
+    List<Equipo> obtenerEquiposNoEnlazadosConId(@Param("idEquipo") long idEquipo);
+
 }

@@ -96,7 +96,7 @@
                     <th>Nombre</th>
                     <th>¿Activa?</th>
                     <th>Ver</th>
-                    <th>Eliminar</th>
+                    <th sec:authorize="hasAuthority('ADMIN')">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -105,7 +105,7 @@
                     <td th:text="${c.nombre}">Categoria 1</td>
                     <td th:text="${c.activa}">Activo</td>
                     <td><a class="circular-button edit-button text-decoration-none" title="Edita" th:href="@{~/categoria/{id}(id=${c.id})}">👁️</a></td>
-                    <td><a class="circular-button delete-button text-decoration-none" title="Eliminar" th:href="@{~/categoria/del/{id}(id=${c.id})}">❌</a></td>
+                    <td sec:authorize="hasAuthority('ADMIN')"><a class="circular-button delete-button text-decoration-none" title="Eliminar" th:href="@{~/categoria/del/{id}(id=${c.id})}" sec:authorize="hasAuthority('ADMIN')">❌</a></td>
                 </tr>
             </tbody>
         </table>

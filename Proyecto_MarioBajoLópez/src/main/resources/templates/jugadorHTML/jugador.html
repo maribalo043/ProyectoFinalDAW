@@ -1,37 +1,58 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Tarjeta del Jugador</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Tarjeta con Bootstrap</title>
+  <style>
+    body {
+        margin-top: 20px; /* Márgen superior de 20px */
+        margin-bottom: 20px; /* Márgen inferior de 20px */
+    }
+    .container {
+      text-align: center;
+    }
+    .card {
+      width: 35%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+    .card-body {
+      text-align: left; /* Alinea el texto a la izquierda */
+    }
+    .line {
+      display: flex;
+    }
+    .table-container {
+      flex: 0 0 70%;
+      margin-right: 20px;
+    }
+    .form-container {
+      flex: 1;
+    }
+  </style>
 </head>
 <body>
-<div>
-<div class="container d-flex justify-content-center align-items-center">
+  <div class="container">
     <div class="card">
-        <div class="card-header">
-            Información del Jugador
+      <div class="card-body" th:each="j : ${jugador}">
+        <h2 class="card-title text-center">Detalle del Jugador</h2>
+        <span><strong>ID:</strong><span th:text="${j.id}">id</span></span><br>
+        <span><strong>DNI:</strong><span th:text="${j.dni}">DNI</span></span><br>
+        <span><strong>Nombre:</strong><span th:text="${j.nombre}">nombre</span></span><br>
+        <span><strong>Equipo:</strong><span th:text="${j.equipo.nombre}">Equipo</span></span><br>
+        <span><strong>Número de Seguro:</strong><span th:text="${j.numeroSeguro}">Seguro</span></span><br>
+        <span><strong>Talla Camiseta:</strong><span th:text="${j.tallaCamiseta}">Camiseta</span></span><br>
+        <span><strong>Portero:</strong><span th:text="${j.portero}">portero</span></span><br>
+        <div class="mt-4 d-flex justify-content-between">
+          <span><a th:href="@{~/jugadores}" class="btn btn-secondary">Volver</a></span>
+          <span><a th:href="@{~/jugador/edit/{id}(id = ${jugador.id})}" class="btn btn-primary ml-2" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
         </div>
-        <div class="card-body" th:each="jugador:${jugador}">
-            <span class="titulo">DNI: <span th:text="${jugador.dni}">34293782T</span></span>
-            <span class="titulo">Nombre: <span th:text="${jugador.nombre}">Mario</span></span>
-            <span class="titulo">Número Seguro: <span th:text="${jugador.numeroSeguro}">12345678912345678922</span></span>
-            <span class="titulo">Talla Camiseta: <span th:text="${jugador.tallaCamiseta}">XL</span></span>
-            <span class="titulo">Portero: <span th:text="${jugador.portero ? 'SÍ' : 'NO'}">Yes</span></span>
-            <span class="titulo">Equipo: <span th:text="${jugador.equipo?.nombre}">Mis panitas</span></span>
-            <span class="titulo">Categoria: <span th:text="${jugador.equipo?.categoria?.nombre}">Mis panitas</span></span>
-        </div>
-        <div class="card-footer" th:each="jugador:${jugador}">
-            <a class="btn btn-volver" th:href="@{~/jugadores}">👈 Volver</a>
-            <a class="btn btn-editar float-right" th:href="@{~/jugador/edit/{dni}(dni = ${jugador.dni})}">✏️ Editar</a>
-        </div>
+      </div>
     </div>
-</div>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

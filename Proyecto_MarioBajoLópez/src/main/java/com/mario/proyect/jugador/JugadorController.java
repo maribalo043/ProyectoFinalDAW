@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.mario.proyect.equipo.EquipoDAO;
-import com.mario.proyect.partido.Partido;
 
 import jakarta.validation.Valid;
 
@@ -43,22 +42,22 @@ public class JugadorController {
 }
 
 
-    @GetMapping("/jugador/{dni}")
-	public ModelAndView getJugador(@PathVariable String dni) {
-		Jugador jugador = jugadorDao.findById(dni).get();
+    @GetMapping("/jugador/{id}")
+	public ModelAndView getJugador(@PathVariable long id) {
+		Jugador jugador = jugadorDao.findById(id).get();
 		ModelAndView model = new ModelAndView();
 		model.setViewName("jugadorHTML/Jugador");
 		model.addObject("jugador",jugador);
 		return model;
 	}
 
-    @GetMapping("/jugador/del/{dni}")
-    public ModelAndView deleteJugador(@PathVariable String dni){
+    @GetMapping("/jugador/del/{id}")
+    public ModelAndView deleteJugador(@PathVariable long id){
 
         ModelAndView model = new ModelAndView();
-        Optional<Jugador> jugador = jugadorDao.findById(dni);
+        Optional<Jugador> jugador = jugadorDao.findById(id);
         if(jugador.isPresent()){
-            jugadorDao.deleteById(dni);
+            jugadorDao.deleteById(id);
         }
         model.setViewName("redirect:/jugadores");
         
@@ -76,34 +75,37 @@ public class JugadorController {
         return model;
     }
 
-    @SuppressWarnings("null")
     @PostMapping("/jugador/save")
     public ModelAndView saveJugador(@ModelAttribute("jugadorNuevo") @Valid Jugador jugadorNuevo, BindingResult bindingResult) {
-    ModelAndView model = new ModelAndView();
+        ModelAndView model = new ModelAndView();
 
-    if (bindingResult.hasErrors()) {
-        model.addObject("jugadorNuevo", jugadorNuevo);
-        model.addObject("equipos", equipoDao.findAll());
-        model.addObject("equipoItem",equipoDao.findAll());
-        model.setViewName("jugadorHTML/jugadoresForm");
+        if (bindingResult.hasErrors()) {
+            model.addObject("jugadorNuevo", jugadorNuevo);
+            model.addObject("equipos", equipoDao.findAll());
+            model.setViewName("jugadorHTML/jugadoresForm");
+            return model;
+        }
+        jugadorNuevo.setEquipo(jugadorNuevo.getEquipo());
+        jugadorDao.save(jugadorNuevo);
+
+        model.setViewName("redirect:/jugadores");
         return model;
     }
 
-    jugadorDao.save(jugadorNuevo);
-
-    model.setViewName("redirect:/jugadores");
-    return model;
+@GetMapping("/jugador/edit/{id}")
+public ModelAndView editJugador(@PathVariable long id) {
+    ModelAndView model = new ModelAndView();
+    Optional<Jugador> jugOpt = jugadorDao.findById(id);
+    
+    if (jugOpt.isPresent()) {
+        Jugador jugador = jugOpt.get();
+        model.addObject("jugadorNuevo", jugador);
+        model.addObject("equipos", equipoDao.findAll());
+        model.setViewName("jugadorHTML/jugadoresForm");
+    } else {
+        model.setViewName("redirect:/jugadores");
     }
-
-    @GetMapping("/jugador/edit/{dni}")
-    public ModelAndView editJugador(@PathVariable String dni){
-        ModelAndView model = new ModelAndView();
-        Optional <Jugador> jugOpt=jugadorDao.findById(dni);
-        if(jugOpt.isPresent()) {
-			model.addObject("jugadorNuevo",jugOpt.get());
-            model.addObject("equipos",equipoDao.findAll());
-			model.setViewName("jugadorHTML/jugadoresForm");
-		}else model.setViewName("redirect:/jugadores");
-		return model;
-    } 
+    
+    return model;
+} 
 }

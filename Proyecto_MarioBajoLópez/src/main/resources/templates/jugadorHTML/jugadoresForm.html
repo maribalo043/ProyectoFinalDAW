@@ -22,6 +22,15 @@
             method="post"
             th:object="${jugadorNuevo}"
           >
+          <div class="form-group" hidden>
+            <label for="id">ID:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="id"
+              th:field="*{id}"
+            />
+          </div>
             <!-- Campo 'dni' -->
             <div class="form-group">
               <label for="dni">DNI:</label>
@@ -89,6 +98,23 @@
                 <option value="3XS">3XS</option>
               </select>
             </div>
+
+            <div class="form-group">
+              <label for="equipo">Equipo:</label>
+              <select
+                class="form-control rounded bg-light"
+                id="equipo"
+                th:field="*{equipo}">
+                <option value="">No Asignado</option>
+                <option
+                  th:each="equipo : ${equipos}"
+                  th:text="${equipo.nombre}"
+                  th:value="${equipo.id}"
+                ></option>
+              </select>
+              <p th:if="${#fields.hasErrors('equipo')}" th:errors="*{equipo}" class="btn btn-danger">Error</p>
+            </div>
+
             <div class="form-group">
               <label>¿Es portero?</label>
               <div class="form-check form-check-inline">

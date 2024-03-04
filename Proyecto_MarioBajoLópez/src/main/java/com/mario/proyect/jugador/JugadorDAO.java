@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface JugadorDAO extends CrudRepository<Jugador,String>{
+public interface JugadorDAO extends CrudRepository<Jugador,Long>{
     
     @Query(value = "SELECT * FROM jugadores ORDER BY equipo_id", nativeQuery = true)
     List<Jugador> findAllPorEquipo();

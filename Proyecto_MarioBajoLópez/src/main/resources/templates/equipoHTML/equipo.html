@@ -44,7 +44,7 @@
         <span><strong>Número de Teléfono:</strong><span th:text="${equipo.numeroTelefonoContacto}">telefono</span></span><br>
         <div class="mt-4 d-flex justify-content-between">
           <span><a th:href="@{~/equipos}" class="btn btn-secondary">Volver</a></span>
-          <span><a th:href="@{~/equipo/edit/{id}(id = ${equipo.id})}" class="btn btn-primary ml-2">Editar</a></span>
+          <span><a th:href="@{~/equipo/edit/{id}(id = ${equipo.id})}" class="btn btn-primary ml-2" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
         </div>
       </div>
     </div>
@@ -81,6 +81,7 @@
 
       <div class="form-container">
         <form
+            sec:authorize="hasAuthority('ADMIN')"
             th:action="@{~/partido/save}"
             method="post"
             th:object="${partidoNuevo}"

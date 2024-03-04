@@ -42,7 +42,7 @@
             <span><strong>Activa:</strong><span th:text="${c.activa}">email</span></span><br>
             <div class="mt-4">
                 <span><a th:href="@{~/categorias}" class="btn btn-secondary">Volver</a></span>
-                <span><a class="btn btn-primary ml-2" th:href="@{~/categoria/edit/{id}(id=${c.id})}">Editar</a></span>
+                <span><a class="btn btn-primary ml-2" th:href="@{~/categoria/edit/{id}(id=${c.id})}" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
             </div>
         </div>
     </div>

@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mario.proyect.categoria.CategoriaDAO;
 import com.mario.proyect.equipo.EquipoDAO;
 
+import jakarta.validation.Valid;
+
 @Controller
 public class PartidoController {
 
@@ -85,7 +87,7 @@ public ModelAndView deletePartido(@PathVariable long idLocal, @PathVariable long
 
     @SuppressWarnings("null")
     @PostMapping("/partido/save")
-    public ModelAndView savePartido(@ModelAttribute Partido partidoNuevo, BindingResult bindingResult) {
+    public ModelAndView savePartido(@ModelAttribute("partidoNuevo") @Valid Partido partidoNuevo, BindingResult bindingResult) {
 
         
     ModelAndView model = new ModelAndView();
@@ -95,7 +97,7 @@ public ModelAndView deletePartido(@PathVariable long idLocal, @PathVariable long
         model.setViewName("partidoForm");
 
         model.setViewName("partidoHTML/partidoForm");
-    	model.addObject("partidoNuevo",new Partido());
+    	model.addObject("partidoNuevo",partidoNuevo);
         model.addObject("equipos",equipoDao.findAll());
 
         return model;
