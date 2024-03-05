@@ -35,15 +35,15 @@
 <body>
 
     <div class="card">
-        <div class="card-body" th:each="p : ${partido}">
+        <div class="card-body" >
             <h2 class="card-title">Detalles del Partido</h2>
-            <span><strong>Equipo Local:</strong><span th:text="${p.equipoLocal?.nombre}"></span></span><br>
-            <span><strong>Resultado:</strong>LOCAL<span th:text="${p.golesLocal}"></span>-<span th:text="${p.golesVisitante}"></span>VISITANTE<br>
-            <span><strong>Equipo Visitante:</strong><span th:text="${p.equipoVisitante?.nombre}"></span></span><br>
-            <span><strong>Pista:</strong><span th:text="${p.pista}">email</span></span><br>
+            <span><strong>Equipo Local:</strong><span th:text="${partido.equipoLocal?.nombre}"></span></span><br>
+            <span><strong>Resultado:</strong>LOCAL<span th:text="${partido.golesLocal}"></span>-<span th:text="${partido.golesVisitante}"></span>VISITANTE<br>
+            <span><strong>Equipo Visitante:</strong><span th:text="${partido.equipoVisitante?.nombre}"></span></span><br>
+            <span><strong>Pista:</strong><span th:text="${partido.pista}">pista</span></span><br>
             <div class="mt-4">
                 <span><a th:href="@{~/partidos}" class="btn btn-secondary">Volver</a></span>
-                <span sec:authorize="hasAuthority('ADMIN')"><a th:href="@{~/partido/edit/{idLocal}/{idVisitante}(idLocal=${p.equipoLocal?.id}, idVisitante=${p.equipoVisitante?.id})}" class="btn btn-primary ml-2" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
+                <span sec:authorize="hasAuthority('ADMIN')"><a th:href="@{~/partido/edit/{idLocal}/{idVisitante}(idLocal=${partido.equipoLocal?.id}, idVisitante=${partido.equipoVisitante?.id})}" class="btn btn-primary ml-2" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
             </div>
             
         </div>

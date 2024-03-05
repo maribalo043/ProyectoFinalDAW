@@ -109,8 +109,8 @@
             <a class="btn btn-success float-right m-2" th:href="@{/jugadores/equipo(equipo=equipo)}">Filtrar por Equipo</a>
         </h2>
         <div th:if="${#lists.isEmpty(jugadores)}" class="m-2">
-          <h3>La tabla de Equipos esta vacía</h3>
-          <a class="btn btn-primary float-right m-2" th:href="@{~/equipo/add}" th:if="${#lists.isEmpty(jugadores)}">Añadir Equipo</a>
+          <h3>La tabla de Jugadores esta vacía</h3>
+          <a class="btn btn-primary float-right m-2" th:href="@{~/jugador/add}" th:if="${#lists.isEmpty(jugadores)}">Añadir Jugador</a>
         </div>
         <table class="table table-hover table-striped" th:if="${not#lists.isEmpty(jugadores)}">
             <thead>

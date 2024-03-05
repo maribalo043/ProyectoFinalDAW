@@ -37,7 +37,7 @@ public class SecurityConfig {
 		http.authorizeRequests()
 			.requestMatchers("/").permitAll()
 			.requestMatchers("/jugadores/**", "/equipos/**", "/categorias/**", "/partidos/**").authenticated()
-			.requestMatchers("/jugador/del/**", "/equipo/del/**", "/categoria/del/**", "/partido/del/**").hasAuthority("ADMIN")
+			.requestMatchers("/jugador/del/**", "/equipo/del/**", "/categoria/del/**", "/partido/del/**","/jugador/edit/**","/equipo/edit/**","/categoria/edit/**","/partido/edit/**").hasAuthority("ADMIN")
 			.and()
 			.formLogin();
 

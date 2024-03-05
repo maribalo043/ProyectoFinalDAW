@@ -35,14 +35,14 @@
 <body>
 
     <div class="card">
-        <div class="card-body" th:each="c : ${categoria}">
+        <div class="card-body">
             <h2 class="card-title">Detalles de la Categoria</h2>
-            <span><strong>ID:</strong><span th:text="${c.id}">id</span></span><br>
-            <span><strong>Nombre:</strong><span th:text="${c.nombre}">equipo</span></span><br>
-            <span><strong>Activa:</strong><span th:text="${c.activa}">email</span></span><br>
+            <span><strong>ID:</strong><span th:text="${categoria.id}">id</span></span><br>
+            <span><strong>Nombre:</strong><span th:text="${categoria.nombre}">equipo</span></span><br>
+            <span><strong>Activa:</strong><span th:text="${categoria.activa}">email</span></span><br>
             <div class="mt-4">
                 <span><a th:href="@{~/categorias}" class="btn btn-secondary">Volver</a></span>
-                <span><a class="btn btn-primary ml-2" th:href="@{~/categoria/edit/{id}(id=${c.id})}" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
+                <span><a class="btn btn-primary ml-2" th:href="@{~/categoria/edit/{id}(id=${categoria.id})}" sec:authorize="hasAuthority('ADMIN')">Editar</a></span>
             </div>
         </div>
     </div>

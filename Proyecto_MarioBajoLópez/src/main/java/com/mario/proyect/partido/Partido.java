@@ -8,8 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "partidos")
@@ -28,9 +27,9 @@ public class Partido {
 	@JoinColumn(name = "equipo_Visitante")
 	private Equipo equipoVisitante;
 	
-	@Min(value = 0, message = "Debe ser un número entero no negativo")
+	@Size(min = 0,max=100, message = "Debe ser un número entero no negativo")
     private String golesLocal;
-	@Min(value = 0, message = "Debe ser un número entero no negativo")
+	@Size(min = 0,max=100, message = "Debe ser un número entero no negativo")
 	private String golesVisitante;
 	private String pista;
 
@@ -84,6 +83,6 @@ public class Partido {
 
 	@Override
 	public String toString() {
-		return "Partido [id=" + id + "," + golesLocal + " : " + golesVisitante + equipoLocal + equipoVisitante +"]";
+		return "Partido [id=" + id + "," + golesLocal + " : " + golesVisitante  +" Local: "+equipoLocal +" Visitante: "+ equipoVisitante + " pista: "+ pista +"]";
 	}
 }

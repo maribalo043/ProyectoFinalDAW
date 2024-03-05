@@ -47,14 +47,12 @@ public class PartidoController {
         partidoKey.setIdEquipoLocal(idLocal);
         partidoKey.setIdEquipoVisitante(idVisitante);
 
-        partido.setId(partidoKey);
-        partido.setEquipoLocal(equipoDao.findById(idLocal).get());
-        partido.setEquipoVisitante(equipoDao.findById(idVisitante).get());
+        partido = partidoDao.findById(partidoKey).get();
 
         model.addObject("partido", partido);
-        
         return model;
     }
+    
     @SuppressWarnings("null")
     @GetMapping("/partido/del/{idLocal}/{idVisitante}")
 public ModelAndView deletePartido(@PathVariable long idLocal, @PathVariable long idVisitante) {
