@@ -158,7 +158,7 @@ public class Equipo {
         ArrayList<Equipo> allEquipos = (ArrayList<Equipo>) equipoDao.findAll();
         allEquipos.remove(equipoDao.findById(this.id).get());
 
-        ArrayList<Partido> allPartidos = (ArrayList<Partido>) partidoDao.obtenerPartidosPorEquipo(this.id);
+        ArrayList<Partido> allPartidos =(ArrayList<Partido>) partidoDao.obtenerPartidosPorEquipo(this.id);
         for(Partido indice : allPartidos){
 
             Equipo equipoLocal = indice.getEquipoLocal();
