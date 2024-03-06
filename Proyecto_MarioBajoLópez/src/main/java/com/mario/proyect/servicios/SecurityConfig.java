@@ -31,7 +31,7 @@ public class SecurityConfig {
 	        .and()
 	        .build();
 	   	}
-       	/*Acceso a Rutas */
+       	/*Acceso a Rutas*/
        	@Bean
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
