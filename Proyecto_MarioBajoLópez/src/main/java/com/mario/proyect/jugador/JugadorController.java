@@ -42,22 +42,22 @@ public class JugadorController {
 }
 
 
-    @GetMapping("/jugador/{id}")
-	public ModelAndView getJugador(@PathVariable long id) {
-		Jugador jugador = jugadorDao.findById(id).get();
+    @GetMapping("/jugador/{dni}")
+	public ModelAndView getJugador(@PathVariable String dni) {
+		Jugador jugador = jugadorDao.findById(dni).get();
 		ModelAndView model = new ModelAndView();
 		model.setViewName("jugadorHTML/Jugador");
 		model.addObject("jugador",jugador);
 		return model;
 	}
 
-    @GetMapping("/jugador/del/{id}")
-    public ModelAndView deleteJugador(@PathVariable long id){
+    @GetMapping("/jugador/del/{dni}")
+    public ModelAndView deleteJugador(@PathVariable String dni){
 
         ModelAndView model = new ModelAndView();
-        Optional<Jugador> jugador = jugadorDao.findById(id);
+        Optional<Jugador> jugador = jugadorDao.findById(dni);
         if(jugador.isPresent()){
-            jugadorDao.deleteById(id);
+            jugadorDao.deleteById(dni);
         }
         model.setViewName("redirect:/jugadores");
         
@@ -92,10 +92,10 @@ public class JugadorController {
         return model;
     }
 
-@GetMapping("/jugador/edit/{id}")
-public ModelAndView editJugador(@PathVariable long id) {
+@GetMapping("/jugador/edit/{dni}")
+public ModelAndView editJugador(@PathVariable String dni) {
     ModelAndView model = new ModelAndView();
-    Optional<Jugador> jugOpt = jugadorDao.findById(id);
+    Optional<Jugador> jugOpt = jugadorDao.findById(dni);
     
     if (jugOpt.isPresent()) {
         Jugador jugador = jugOpt.get();

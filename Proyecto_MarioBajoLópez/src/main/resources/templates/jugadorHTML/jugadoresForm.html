@@ -22,25 +22,25 @@
             method="post"
             th:object="${jugadorNuevo}"
           >
-          <div class="form-group" hidden>
-            <label for="id">ID:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="id"
-              th:field="*{id}"
-            />
-          </div>
             <!-- Campo 'dni' -->
             <div class="form-group">
               <label for="dni">DNI:</label>
               <input
+                th:if="${jugadorNuevo.dni != null}"
                 type="text"
                 class="form-control"
                 id="dni"
                 placeholder="Ingrese el DNI"
                 th:field="*{dni}"
-                required
+                readonly
+              />
+              <input
+                th:if="${jugadorNuevo.dni == null}"
+                type="text"
+                class="form-control"
+                id="dni"
+                placeholder="Ingrese el DNI"
+                th:field="*{dni}"
               />
               <p th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}" class="btn btn-danger">
                 Error en el DNI

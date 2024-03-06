@@ -17,9 +17,7 @@ import jakarta.validation.constraints.Size;
 @Table(name = "jugadores")
 public class Jugador {
 
-    @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Id
     @Pattern(regexp = "\\d{8}[A-Z]", message = "Dale formato de DNI, 8 números y 1 letra mayúscula")
     private String dni;
 	@Size(min = 5, max = 100, message = "Debe tener entre 5 y 100 caracteres")
@@ -32,13 +30,6 @@ public class Jugador {
 	@ManyToOne
     @JoinColumn(name = "equipo_id", nullable = true)
     private Equipo equipo;
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getDni() {
 		return dni;
