@@ -3,9 +3,7 @@ package com.mario.proyect.categoria;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mario.proyect.equipo.Equipo;
@@ -14,8 +12,12 @@ import com.mario.proyect.partido.PartidoDAO;
 
 public class CategoriaHelper {
 
-    /*Metodo de ayuda para la funcion de borrado de categorias, ademas de sirve para reducir el codigo del controller*/
-    protected ModelAndView helperDelCategoria(long id,CategoriaDAO categoriaDao,EquipoDAO equipoDao,PartidoDAO partidoDao) {
+    /*
+     * Metodo de ayuda para la funcion de borrado de categorias, ademas de sirve
+     * para reducir el codigo del controller
+     */
+    protected ModelAndView helperDelCategoria(long id, CategoriaDAO categoriaDao, EquipoDAO equipoDao,
+            PartidoDAO partidoDao) {
         ModelAndView model = new ModelAndView();
         model.setViewName("redirect:/categorias");
 
@@ -33,22 +35,24 @@ public class CategoriaHelper {
         }
         return model;
     }
-    protected ModelAndView helperSaveCategoria(Categoria categoriaNueva,BindingResult bindingResult, CategoriaDAO categoriaDao,EquipoDAO equipoDao,PartidoDAO partidoDao) {
-        
+
+    @SuppressWarnings("null")
+    protected ModelAndView helperSaveCategoria(Categoria categoriaNueva, BindingResult bindingResult,
+            CategoriaDAO categoriaDao, EquipoDAO equipoDao, PartidoDAO partidoDao) {
+
         ModelAndView model = new ModelAndView();
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             model.setViewName("categoriaHTML/categoriaForm");
-            
+
             model.addObject("categoriaNueva", new Categoria());
 
             return model;
 
         }
         model.setViewName("redirect:/categorias");
-        Optional<Categoria> categoriaOpcional = categoriaDao.findById(categoriaNueva.getId());
 
         categoriaDao.save(categoriaNueva);
-        
+
         return model;
     }
 

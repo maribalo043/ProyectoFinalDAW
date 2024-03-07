@@ -20,15 +20,17 @@ import jakarta.validation.Valid;
 public class PartidoController {
 
     @Autowired
-    PartidoDAO partidoDao;
+    private PartidoDAO partidoDao;
     @Autowired
-    CategoriaDAO categoriaDao;
+    private CategoriaDAO categoriaDao;
     @Autowired
-    EquipoDAO equipoDao;
+    private EquipoDAO equipoDao;
+
+    private PartidoHelper helper = new PartidoHelper();
 
     @GetMapping("/partidos")
     public ModelAndView getPartidos() {
-       
+
         ModelAndView model = new ModelAndView();
         model.setViewName("partidoHTML/partidos");
         model.addObject("partidos", partidoDao.findAll());
@@ -37,106 +39,57 @@ public class PartidoController {
     }
 
     @GetMapping("/partido/{idLocal}/{idVisitante}")
-    public ModelAndView getPartido(@PathVariable long idLocal,@PathVariable long idVisitante){
-
-        ModelAndView model = new ModelAndView();
-        model.setViewName("partidoHTML/partido");
-        Partido partido = new Partido();
-
-        PartidoKey partidoKey = new PartidoKey();
-        partidoKey.setIdEquipoLocal(idLocal);
-        partidoKey.setIdEquipoVisitante(idVisitante);
-
-        partido = partidoDao.findById(partidoKey).get();
-
-        model.addObject("partido", partido);
-        return model;
+    public ModelAndView getPartido(@PathVariable long idLocal, @PathVariable long idVisitante) {
+        return helper.helperViewPartido(idLocal, idVisitante, categoriaDao, equipoDao, partidoDao);
     }
-    
+
     @SuppressWarnings("null")
     @GetMapping("/partido/del/{idLocal}/{idVisitante}")
-public ModelAndView deletePartido(@PathVariable long idLocal, @PathVariable long idVisitante) {
-    ModelAndView model = new ModelAndView();
-    model.setViewName("redirect:/partidos");
+    public ModelAndView deletePartido(@PathVariable long idLocal, @PathVariable long idVisitante) {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("redirect:/partidos");
 
-    PartidoKey partidoKey = new PartidoKey();
-    partidoKey.setIdEquipoLocal(idLocal);
-    partidoKey.setIdEquipoVisitante(idVisitante);
+        PartidoKey partidoKey = helper.formarPartidoKey(idLocal, idVisitante);
 
-    Optional<Partido> partidoOptional = partidoDao.findById(partidoKey);
+        Optional<Partido> partidoOptional = partidoDao.findById(partidoKey);
 
-    if (partidoOptional.isPresent()) {
-        Partido partido = partidoOptional.get();
-        partidoDao.delete(partido);
+        if (partidoOptional.isPresent()) {
+            partidoDao.delete(partidoOptional.get());
+        }
+        return model;
     }
-    return model;
-}
 
     @GetMapping("/partido/add")
     public ModelAndView addPartido() {
-    	
-    	ModelAndView model = new ModelAndView();
-    	model.setViewName("partidoHTML/partidoForm");
-    	model.addObject("partidoNuevo",new Partido());
-        model.addObject("equipos",equipoDao.findAll());
-
-    	return model;	
-    }
-
-    @SuppressWarnings("null")
-    @PostMapping("/partido/save")
-    public ModelAndView savePartido(@ModelAttribute("partidoNuevo") @Valid Partido partidoNuevo, BindingResult bindingResult) {
-
-        
-    ModelAndView model = new ModelAndView();
-    /*, BindingResult bindingResult */
-    /*Revisar que todo se setea o ver si se guarda etc*/
-    if(bindingResult.hasErrors()){
-        model.setViewName("partidoForm");
-
-        model.setViewName("partidoHTML/partidoForm");
-    	model.addObject("partidoNuevo",partidoNuevo);
-        model.addObject("equipos",equipoDao.findAll());
-
-        return model;
-
-    }
-    model.setViewName("redirect:/partidos");
-
-    if (partidoNuevo.getId() != null) {
-        Partido existente = partidoDao.findById(partidoNuevo.getId()).orElse(null);
-        if (existente != null) {
-            existente.setGolesLocal(partidoNuevo.getGolesLocal());
-            existente.setGolesVisitante(partidoNuevo.getGolesVisitante());
-            existente.setPista(partidoNuevo.getPista());
-            partidoDao.save(existente);
-        }
-    } else {
-        PartidoKey partidoKey = new PartidoKey();
-        partidoKey.setIdEquipoLocal(partidoNuevo.getEquipoLocal().getId());
-        partidoKey.setIdEquipoVisitante(partidoNuevo.getEquipoVisitante().getId());
-        partidoNuevo.setId(partidoKey);
-        partidoDao.save(partidoNuevo);
-    }
-    return model;
-}
-
-
-
-    @GetMapping("/partido/edit/{idLocal}/{idVisitante}")
-    public ModelAndView editPartido(@PathVariable long idLocal,@PathVariable long idVisitante){
 
         ModelAndView model = new ModelAndView();
         model.setViewName("partidoHTML/partidoForm");
-        
+        model.addObject("partidoNuevo", new Partido());
+        model.addObject("equipos", equipoDao.findAll());
+
+        return model;
+    }
+
+    @PostMapping("/partido/save")
+    public ModelAndView savePartido(@ModelAttribute("partidoNuevo") @Valid Partido partidoNuevo,
+            BindingResult bindingResult) {
+
+        return helper.helperSavePartido(partidoNuevo, bindingResult, categoriaDao, equipoDao, partidoDao);
+
+    }
+
+    @GetMapping("/partido/edit/{idLocal}/{idVisitante}")
+    public ModelAndView editPartido(@PathVariable long idLocal, @PathVariable long idVisitante) {
+
+        ModelAndView model = new ModelAndView();
+        model.setViewName("partidoHTML/partidoForm");
+
         Partido partido = new Partido();
-        PartidoKey key = new PartidoKey();
-        key.setIdEquipoLocal(idLocal);
-        key.setIdEquipoVisitante(idVisitante);
+        PartidoKey key = helper.formarPartidoKey(idLocal, idVisitante);
         partido.setId(key);
 
-        model.addObject("partidoNuevo",partido);
-        model.addObject("equipos",equipoDao.findAll());
+        model.addObject("partidoNuevo", partido);
+        model.addObject("equipos", equipoDao.findAll());
 
         return model;
     }

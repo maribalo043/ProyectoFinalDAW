@@ -1,7 +1,5 @@
 package com.mario.proyect.equipo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,118 +12,75 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mario.proyect.categoria.CategoriaDAO;
 import com.mario.proyect.jugador.JugadorDAO;
-import com.mario.proyect.partido.Partido;
 import com.mario.proyect.partido.PartidoDAO;
 
 import jakarta.validation.Valid;
 
-import org.springframework.web.bind.annotation.PostMapping; 
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class EquipoController {
     @Autowired
-    JugadorDAO jugadorDao;
+    private JugadorDAO jugadorDao;
     @Autowired
-    EquipoDAO equipoDao;
+    private EquipoDAO equipoDao;
     @Autowired
-    CategoriaDAO categoriaDao;
+    private CategoriaDAO categoriaDao;
     @Autowired
-    PartidoDAO partidoDao;
+    private PartidoDAO partidoDao;
 
-    @GetMapping(value = {"/equipos", "/equipos/{filtro}"})
+    private EquipoHelper helper = new EquipoHelper();
+
+    @GetMapping(value = { "/equipos", "/equipos/{filtro}" })
     public ModelAndView getEquipos(@PathVariable(required = false) String filtro) {
 
-    ModelAndView model = new ModelAndView();
-    model.setViewName("equipoHTML/equipos");
-    if(filtro != null){
-        if(filtro.equals("categorias")){
-            model.addObject("equipos", equipoDao.findAllByCategoria());
-        }else{
-            model.addObject("jugadores", jugadorDao.findAll());
+        ModelAndView model = new ModelAndView();
+        model.setViewName("equipoHTML/equipos");
+        if (filtro != null) {
+            if (filtro.equals("categorias")) {
+                model.addObject("equipos", equipoDao.findAllByCategoria());
+            }
+        } else {
+            model.addObject("equipos", equipoDao.findAll());
         }
-    }else{
-        model.addObject("equipos", equipoDao.findAll());
+        return model;
     }
-    return model;
-}
 
     @GetMapping("equipo/{id}")
     public ModelAndView getEquipo(@PathVariable long id) {
 
-        ModelAndView model = new ModelAndView();
-        Equipo equipo = equipoDao.findById(id).get();
-        if(equipoDao.findById(id).isPresent()){
-            model.addObject("equipo", equipoDao.findById(id).get());
-            model.addObject("partidos", partidoDao.obtenerPartidosPorEquipo(id));
-            model.addObject("partidoNuevo", new Partido());           model.addObject("equipos",equipo.obtenerEquiposNoEnlazadosConId(equipoDao, partidoDao));
-            model.setViewName("equipoHTML/equipo");
-        }else{
-            model.setViewName("equipoHTML/equipos");
-        }
-        
-        return model;
+        return helper.helperViewEquipo(id, jugadorDao, categoriaDao, equipoDao, partidoDao);
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/equipo/del/{id}")
     public ModelAndView deleteEquipo(@PathVariable long id) {
-    ModelAndView model = new ModelAndView();
-    
-    Optional<Equipo> equipoOptional = equipoDao.findById(id);
-
-    if (equipoOptional.isPresent()) {
-        Equipo equipo = equipoOptional.get();
-
-        List<Partido> partidosAsociados = partidoDao.findByEquipoLocalOrEquipoVisitante(equipo, equipo);
-        partidoDao.deleteAll(partidosAsociados);
-
-        equipoDao.deleteById(id);
+        return helper.helperDelEquipo(id, jugadorDao, categoriaDao, equipoDao, partidoDao);
     }
-
-    model.setViewName("redirect:/equipos");
-    return model;
-}
 
     @GetMapping("equipo/add")
     public ModelAndView addJugador() {
 
         ModelAndView model = new ModelAndView();
-        model.addObject("equipoNuevo",new Equipo());
-        model.addObject("categorias",categoriaDao.categoriasActive());
+        model.addObject("equipoNuevo", new Equipo());
+        model.addObject("categorias", categoriaDao.categoriasActive());
         model.setViewName("equipoHTML/equipoForm");
 
         return model;
     }
 
     @PostMapping("/equipo/save")
-public ModelAndView saveEquipo(@ModelAttribute @Valid Equipo equipo, BindingResult bindingResult) {
-    ModelAndView model = new ModelAndView();
-
-    if(bindingResult.hasErrors()){
-        model.addObject("equipoNuevo",equipo);
-        model.addObject("categorias",categoriaDao.categoriasActive());
-        model.setViewName("equipoHTML/equipoForm");
-        return model;
+    public ModelAndView saveEquipo(@ModelAttribute @Valid Equipo equipo, BindingResult bindingResult) {
+        return helper.helperSaveEquipo(equipo, bindingResult, jugadorDao, categoriaDao, equipoDao, partidoDao);
     }
-
-    model.setViewName("redirect:/equipos");
-    equipoDao.save(equipo);
-    
-
-    model.addObject("equipos", equipoDao.findAll());
-    return model;
-}
-
-    
 
     @GetMapping("equipo/edit/{id}")
     public ModelAndView editEquipo(@PathVariable long id) {
-        
+
         ModelAndView model = new ModelAndView();
         Optional<Equipo> equipo = equipoDao.findById(id);
         if (equipo.isPresent()) {
             model.addObject("equipoNuevo", equipo.get());
-            model.addObject("categorias",categoriaDao.categoriasActive());
+            model.addObject("categorias", categoriaDao.categoriasActive());
         }
         model.setViewName("equipoHTML/equipoForm");
         return model;

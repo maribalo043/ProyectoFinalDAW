@@ -14,98 +14,77 @@ import com.mario.proyect.equipo.EquipoDAO;
 
 import jakarta.validation.Valid;
 
-
 @Controller
 public class JugadorController {
 
     @Autowired
-    JugadorDAO jugadorDao;
+    private JugadorDAO jugadorDao;
     @Autowired
-    EquipoDAO equipoDao;
+    private EquipoDAO equipoDao;
 
-    @GetMapping(value = {"/jugadores", "/jugadores/{filtro}"})
+    private JugadorHelper helper = new JugadorHelper();
+
+    @GetMapping(value = { "/jugadores", "/jugadores/{filtro}" })
     public ModelAndView getJugadores(@PathVariable(required = false) String filtro) {
-
-    ModelAndView model = new ModelAndView("jugadorHTML/jugadores");
-    if(filtro != null){
-        if(filtro.equals("tallaCamiseta")){
-            model.addObject("jugadores", jugadorDao.findAllPorTallaCamiseta());
-        }else if(filtro.equals("equipo")){
-            model.addObject("jugadores", jugadorDao.findAllPorEquipo());
-        }else{
-            model.addObject("jugadores", jugadorDao.findAll());
-        }
-    }else{
-        model.addObject("jugadores", jugadorDao.findAll());
+        return helper.helperViewJugadores(filtro, jugadorDao, equipoDao);
     }
-    return model;
-}
 
-
+    @SuppressWarnings("null")
     @GetMapping("/jugador/{dni}")
-	public ModelAndView getJugador(@PathVariable String dni) {
-		Jugador jugador = jugadorDao.findById(dni).get();
-		ModelAndView model = new ModelAndView();
-		model.setViewName("jugadorHTML/Jugador");
-		model.addObject("jugador",jugador);
-		return model;
-	}
+    public ModelAndView getJugador(@PathVariable String dni) {
+        Jugador jugador = jugadorDao.findById(dni).get();
+        ModelAndView model = new ModelAndView();
+        model.setViewName("jugadorHTML/Jugador");
+        model.addObject("jugador", jugador);
+        return model;
+    }
 
+    @SuppressWarnings("null")
     @GetMapping("/jugador/del/{dni}")
-    public ModelAndView deleteJugador(@PathVariable String dni){
+    public ModelAndView deleteJugador(@PathVariable String dni) {
 
         ModelAndView model = new ModelAndView();
         Optional<Jugador> jugador = jugadorDao.findById(dni);
-        if(jugador.isPresent()){
+        if (jugador.isPresent()) {
             jugadorDao.deleteById(dni);
         }
         model.setViewName("redirect:/jugadores");
-        
+
         return model;
     }
-    
+
     @GetMapping("/jugador/add")
-    public ModelAndView addJugador(){
+    public ModelAndView addJugador() {
         ModelAndView model = new ModelAndView();
         model.addObject("jugadorNuevo", new Jugador());
         model.addObject("equipos", equipoDao.findAll());
-        model.addObject("equipoItem",equipoDao.findAll());
+        model.addObject("equipoItem", equipoDao.findAll());
         model.setViewName("jugadorHTML/jugadoresForm");
 
         return model;
     }
 
     @PostMapping("/jugador/save")
-    public ModelAndView saveJugador(@ModelAttribute("jugadorNuevo") @Valid Jugador jugadorNuevo, BindingResult bindingResult) {
-        ModelAndView model = new ModelAndView();
+    public ModelAndView saveJugador(@ModelAttribute("jugadorNuevo") @Valid Jugador jugadorNuevo,
+            BindingResult bindingResult) {
+        return helper.helperSaveJugador(jugadorNuevo, bindingResult, jugadorDao, equipoDao);
+    }
 
-        if (bindingResult.hasErrors()) {
-            model.addObject("jugadorNuevo", jugadorNuevo);
+    @SuppressWarnings("null")
+    @GetMapping("/jugador/edit/{dni}")
+    public ModelAndView editJugador(@PathVariable String dni) {
+        ModelAndView model = new ModelAndView();
+        Optional<Jugador> jugOpt = jugadorDao.findById(dni);
+
+        if (jugOpt.isPresent()) {
+            Jugador jugador = jugOpt.get();
+            model.addObject("jugadorNuevo", jugador);
             model.addObject("equipos", equipoDao.findAll());
             model.setViewName("jugadorHTML/jugadoresForm");
-            return model;
+        } else {
+            model.setViewName("redirect:/jugadores");
         }
-        jugadorNuevo.setEquipo(jugadorNuevo.getEquipo());
-        jugadorDao.save(jugadorNuevo);
 
-        model.setViewName("redirect:/jugadores");
         return model;
     }
-
-@GetMapping("/jugador/edit/{dni}")
-public ModelAndView editJugador(@PathVariable String dni) {
-    ModelAndView model = new ModelAndView();
-    Optional<Jugador> jugOpt = jugadorDao.findById(dni);
-    
-    if (jugOpt.isPresent()) {
-        Jugador jugador = jugOpt.get();
-        model.addObject("jugadorNuevo", jugador);
-        model.addObject("equipos", equipoDao.findAll());
-        model.setViewName("jugadorHTML/jugadoresForm");
-    } else {
-        model.setViewName("redirect:/jugadores");
-    }
-    
-    return model;
-} 
 }
