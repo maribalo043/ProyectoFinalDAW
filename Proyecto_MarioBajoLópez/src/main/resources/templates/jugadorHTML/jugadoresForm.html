@@ -26,7 +26,7 @@
             <div class="form-group">
               <label for="dni">DNI:</label>
               <input
-                th:if="${jugadorNuevo.dni != null}"
+                th:if="${jugadorNuevo.dni != null and !#fields.hasErrors('dni')}"
                 type="text"
                 class="form-control"
                 id="dni"
@@ -34,15 +34,20 @@
                 th:field="*{dni}"
                 readonly
               />
+              <!-- Segundo input: se muestra cuando el dni es nulo o hay errores -->
               <input
-                th:if="${jugadorNuevo.dni == null}"
+                th:if="${jugadorNuevo.dni == null or #fields.hasErrors('dni')}"
                 type="text"
                 class="form-control"
                 id="dni"
                 placeholder="Ingrese el DNI"
                 th:field="*{dni}"
               />
-              <p th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}" class="btn btn-danger">
+              <p
+                th:if="${#fields.hasErrors('dni')}"
+                th:errors="*{dni}"
+                class="btn btn-danger"
+              >
                 Error en el DNI
               </p>
             </div>
@@ -57,7 +62,11 @@
                 placeholder="Ingrese el nombre"
                 th:field="*{nombre}"
               />
-              <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="btn btn-danger">
+              <p
+                th:if="${#fields.hasErrors('nombre')}"
+                th:errors="*{nombre}"
+                class="btn btn-danger"
+              >
                 Error en el nombre
               </p>
             </div>
@@ -104,7 +113,8 @@
               <select
                 class="form-control rounded bg-light"
                 id="equipo"
-                th:field="*{equipo}">
+                th:field="*{equipo}"
+              >
                 <option value="">No Asignado</option>
                 <option
                   th:each="equipo : ${equipos}"
@@ -112,7 +122,13 @@
                   th:value="${equipo.id}"
                 ></option>
               </select>
-              <p th:if="${#fields.hasErrors('equipo')}" th:errors="*{equipo}" class="btn btn-danger">Error</p>
+              <p
+                th:if="${#fields.hasErrors('equipo')}"
+                th:errors="*{equipo}"
+                class="btn btn-danger"
+              >
+                Error
+              </p>
             </div>
 
             <div class="form-group">

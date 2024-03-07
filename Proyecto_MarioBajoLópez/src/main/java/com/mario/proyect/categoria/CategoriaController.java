@@ -23,11 +23,13 @@ import com.mario.proyect.partido.PartidoDAO;
 public class CategoriaController {
 
     @Autowired
-    CategoriaDAO categoriaDao;
+    private CategoriaDAO categoriaDao;
     @Autowired
-    EquipoDAO equipoDao;
+    private EquipoDAO equipoDao;
     @Autowired 
-    PartidoDAO partidoDao;
+    private PartidoDAO partidoDao;
+
+    private CategoriaHelper  helper = new CategoriaHelper();
 
     @GetMapping("/categorias")
     public ModelAndView getCategorias() {
@@ -57,52 +59,19 @@ public class CategoriaController {
 
         return model;
     }
-    @SuppressWarnings("null")
+
     @GetMapping("/categoria/del/{id}")
     public ModelAndView deleteCategoria(@PathVariable long id) {
-    ModelAndView model = new ModelAndView();
-    model.setViewName("redirect:/categorias");
-
-    Optional<Categoria> categoriaOptional = categoriaDao.findById(id);
-
-    if (categoriaOptional.isPresent()) {
-        Categoria categoria = categoriaOptional.get();
-
-        // Obtener equipos de la categoría
-        List<Equipo> equipos = categoria.getEquipos();
-
-        // Desvincular la categoría en los equipos de la categoría
-        equipos.forEach(equipo -> equipo.setCategoria(null));
-        equipoDao.saveAll(equipos);
-        
-        // Eliminar la categoría
-        categoriaDao.deleteById(id);
+    
+        return helper.helperDelCategoria(id,categoriaDao,equipoDao,partidoDao);
     }
 
-    return model;
-}
-
-    @SuppressWarnings("unused")
     @PostMapping("categoria/save")
     public ModelAndView saveCategoria(@ModelAttribute Categoria categoriaNueva, BindingResult bindingResult ){
 
-        ModelAndView model = new ModelAndView();
-        /*Revisar que todo se setea o ver si se guarda etc*/
-        if(bindingResult.hasErrors()){
-            model.setViewName("categoriaHTML/categoriaForm");
-            
-            model.addObject("categoriaNueva", new Categoria());
-
-            return model;
-
-        }
-        model.setViewName("redirect:/categorias");
-        Optional<Categoria> categoriaOpcional = categoriaDao.findById(categoriaNueva.getId());
-
-        categoriaDao.save(categoriaNueva);
-        
-        return model;
+        return helper.helperSaveCategoria(categoriaNueva, bindingResult, categoriaDao, equipoDao, partidoDao);
     }
+
     @GetMapping("categoria/edit/{id}")
     public ModelAndView editCategoria(@PathVariable long id) {
         
