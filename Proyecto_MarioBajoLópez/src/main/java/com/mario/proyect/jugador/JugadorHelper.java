@@ -18,7 +18,7 @@ public class JugadorHelper {
             } else {
                 model.addObject("jugadores", jugadorDao.findAll());
             }
-        }else{
+        } else {
             model.addObject("jugadores", jugadorDao.findAll());
         }
         return model;
